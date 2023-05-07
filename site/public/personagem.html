@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./script/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <title>Hero Universe</title>
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <span id="logo">Hero Universe</span>
+            <ul>
+                <li><a href="#main-objetivo" class="nav-link link-animation">Objetivo</a></li>
+                <li><a href="#" class="nav-link link-animation">Noticias</a></li>
+                <li><a href="#main-sobre" class="nav-link link-animation">Sobre</a></li>
+                <li><a href="#main-sobre" class="nav-link link-animation">Portifolio</a></li>
+                <li><a href="cadastro.html" class="nav-link link-animation">Cadastro</a></li>
+                <li><a href="login.html" class="nav-link link-animation">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+<select id="selectPersonagem">
+    <option value="SelecioneUmPersonagem" selected>Selecione um Personagem</option>
+    <option value="capitain_american">Capitão América</option>
+    <option value="iron_man">Homem de Ferro</option>
+    <option value="thor">Thor</option>
+    <option value="hulk">Hulk</option>
+    <option value="black_widow">Viúva Negra</option>
+    <option value="black_panther">Pantera Negra</option>
+  </select>
+<button onclick="acharPersonagem()">Selecionar Personagem</button>
+<div id="person">
+</div>
+<script>
+</script>
+
+</html>
