@@ -7,6 +7,7 @@ html {
 
 body {
     font-family: 'Marvel', sans-serif;
+    color: #F78F3F;
     background-repeat: repeat;
     padding: 0;
     margin: 0;
@@ -66,7 +67,6 @@ body {
     width: 100%;
 }
 
-
 .main-index {
     display: flex;
     position: relative;
@@ -82,8 +82,12 @@ body {
 }
 
 .vinheta-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    box-shadow: inset 100px 100px 100px rgba(0,0,0,1);
+    height: 50%;
+    box-shadow: inset 0px 0px 0px 500px rgba(0,0,0,0.9);
     pointer-events: none;
     z-index: 1;
 }
@@ -93,4 +97,20 @@ body {
     opacity: 0.6;
     width: 100%;
     height: auto !important;
+}
+
+.bg_video{
+    display: flex;
+    position: relative; 
+    bottom: 0;
+    width: 99.9%; 
+    z-index: -1000;
+    background: url(images/torre.jpg) no-repeat;
+    background-size: cover; 
+}
+
+.texto-index{
+    display: flex;
+    position: absolute;
+    font-size: 40px;
 }
