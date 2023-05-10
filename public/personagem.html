@@ -17,28 +17,32 @@
         <nav id="navbar">
             <span id="logo">Hero Universe</span>
             <ul>
-                <li><a href="#main-objetivo" class="nav-link link-animation">Objetivo</a></li>
-                <li><a href="#" class="nav-link link-animation">Noticias</a></li>
-                <li><a href="#main-sobre" class="nav-link link-animation">Sobre</a></li>
-                <li><a href="#main-sobre" class="nav-link link-animation">Portifolio</a></li>
-                <li><a href="login.html" class="nav-link link-animation">Login</a></li>
+                <li><a href="login.html" class="nav-link link-animation">Sair</a></li>
             </ul>
         </nav>
     </header>
+    <div class="container">
+        <div class="selectsPerso">
+            <select id="selectPersonagem">
+                <option value="SelecioneUmPersonagem" selected>Selecione um Personagem</option>
+                <option value="capitain_american">Capitão América</option>
+                <option value="iron_man">Homem de Ferro</option>
+                <option value="thor">Thor</option>
+                <option value="hulk">Hulk</option>
+                <option value="black_widow">Viúva Negra</option>
+                <option value="black_panther">Pantera Negra</option>
+            </select>
+            <button onclick="acharPersonagem()">Selecionar Personagem</button>
+        </div>
+        <div class="containerPerso">
+
+            <div class="container cardPersonagem">
+                <div id="person">
+                </div>
+                
+            </div>
+        </div>
+    </div>
 </body>
-<select id="selectPersonagem">
-    <option value="SelecioneUmPersonagem" selected>Selecione um Personagem</option>
-    <option value="capitain_american">Capitão América</option>
-    <option value="iron_man">Homem de Ferro</option>
-    <option value="thor">Thor</option>
-    <option value="hulk">Hulk</option>
-    <option value="black_widow">Viúva Negra</option>
-    <option value="black_panther">Pantera Negra</option>
-  </select>
-<button onclick="acharPersonagem()">Selecionar Personagem</button>
-<div id="person">
-</div>
-<script>
-</script>
 
 </html>

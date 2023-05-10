@@ -8,16 +8,17 @@ function createHash(timestamp) {
     return hash;
 }
 
+var idPersonagem = 0;
 
 function acharPersonagem() {
-    var idPersonagem = 0;
+    idPersonagem = 0;
     const timeStamp = new Date().getTime();
     const hash = createHash(timeStamp);
     var selectElement = document.getElementById('selectPersonagem');
     var selectedValue = selectElement.value;
     console.log(selectedValue);
 
-    if (selectedValue == "SelecioneUmPersonagem"){
+    if (selectedValue == "SelecioneUmPersonagem") {
         person.innerHTML = `Selecione um Personagem!!`
         selectPersonagem.style.borderColor = "#b03838";
     } else if (selectedValue == "capitain_american") {
@@ -54,10 +55,19 @@ function getPerson(dados) {
     i = 0;
     person.innerHTML = "";
     while (i < coisasPersonagens.length) {
-
+        if (idPersonagem == 1009220) {
+            person.innerHTML += `
+            <span class="tituloPersonagem">Capitão America</span><br>
+            <img class="personagemImg" src="./assets/img/pesons/capitao.png"><br>
+            <span class="infoPerso">
+                <a> Capitão América é um super-herói de histórias em quadrinhos americanos publicado pela Marvel Comics.
+                Criado por Joe Simon e Jack Kirby, o primeiro personagem apareceu em Captain America Comics
+                # 1 da Timely Comics, antecessora da Marvel Comics.</a>
+            </span>
+            `
+        }
         person.innerHTML += `
         <div class="card" style="width: 18rem;" id="c${i}">
-            <img id="i${i}" class="card-img-top img-thumbnail" src="" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title" id="n${i}">Card title</h5>
                 <h5 class="card-title" id="cod${i}">Card title</h5>
@@ -68,7 +78,6 @@ function getPerson(dados) {
         `;
         let primeiro = coisasPersonagens[i];
         quadrado = document.querySelector("#c" + i + "");
-        quadrado.querySelector("#i" + i + "").src = primeiro["thumbnail"]["path"] + "." + primeiro["thumbnail"]["extension"];
         quadrado.querySelector("#n" + i + "").textContent = "Nome: " + primeiro["name"];
         quadrado.querySelector("#cod" + i + "").textContent = "Id: " + primeiro["id"];
         i++;

@@ -87,7 +87,7 @@ body {
     align-items: center;
     width: 100%;
     height: 50%;
-    box-shadow: inset 0px 0px 0px 500px rgba(0,0,0,0.9);
+    box-shadow: inset 0px 0px 0px 500px rgba(0, 0, 0, 0.9);
     pointer-events: none;
     z-index: 1;
 }
@@ -99,18 +99,40 @@ body {
     height: auto !important;
 }
 
-.bg_video{
+.bg_video {
     display: flex;
-    position: relative; 
+    position: relative;
     bottom: 0;
-    width: 99.9%; 
+    width: 99.9%;
     z-index: -1000;
-    background: url(images/torre.jpg) no-repeat;
-    background-size: cover; 
+    background-size: cover;
 }
 
-.texto-index{
+.texto-index {
     display: flex;
     position: absolute;
     font-size: 40px;
+}
+
+.tituloPersonagem{
+    font-size: 6vh;
+}
+
+.personagemImg{
+    width: 30vh;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    height: auto;
+    width: 50%;
+}
+
+.selectsPerso{
+    width: auto;
+    border: none;
+    border-radius: 15%;
 }
