@@ -136,3 +136,40 @@ body {
     border: none;
     border-radius: 15%;
 }
+
+.containerCadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+}
+
+.titulo-pages{
+    font-size: 5vh;
+}
+
+.containerItens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    width: 50%;
+    padding: 2%;
+}
+
+.texto {
+    text-align: center;
+    font-size: 2.5vh;
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerInputs {
+    background-color: #E23636;
+}
