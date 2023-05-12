@@ -114,15 +114,15 @@ body {
     font-size: 40px;
 }
 
-.tituloPersonagem{
+.tituloPersonagem {
     font-size: 6vh;
 }
 
-.personagemImg{
+.personagemImg {
     width: 30vh;
 }
 
-.container{
+.container {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -131,7 +131,7 @@ body {
     width: 50%;
 }
 
-.selectsPerso{
+.selectsPerso {
     width: auto;
     border: none;
     border-radius: 15%;
@@ -144,7 +144,7 @@ body {
     height: 65vh;
 }
 
-.titulo-pages{
+.titulo-pages {
     font-size: 5vh;
 }
 
@@ -165,11 +165,36 @@ body {
     font-size: 2.5vh;
 }
 
-label{
-    display: flex;
-    flex-direction: column;
+label {
+    text-align: center;
+    justify-content: center;
+    font-size: 2.5vh;
 }
 
 .containerInputs {
-    background-color: #E23636;
+    display: flex;
+    gap: 2%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.flex{
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.flex input {
+    border-radius: 8px;
+    padding: 5px;
+    width: 40%;
+    border:none;
+    transition: .5s;
 }
