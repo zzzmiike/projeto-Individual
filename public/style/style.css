@@ -122,26 +122,54 @@ body {
     width: 30vh;
 }
 
-.container {
+
+.container .selectsPerso {
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: #ffffff;
-    height: auto;
-    width: 50%;
+    gap: 10vh;
+    width: auto;
 }
 
-.selectsPerso {
+.selectsPerso select {
+    border: 1px solid #E23636;
+    color: #F78F3F;
+    border-radius: 5px;
+    cursor: pointer;
     width: auto;
-    border: none;
-    border-radius: 15%;
+}
+
+.btnl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #E23636;
+    cursor: pointer;
+    width: 30%;
+    color: #F78F3F;
+    border-radius: 5px;
+    transition: .5s;
+}
+#divButton{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #E23636;
+    cursor: pointer;
+    width: 30%;
+    color: #F78F3F;
+    border-radius: 5px;
+    transition: .5s;
 }
 
 .containerCadastro {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 65vh;
 }
 
 .titulo-pages {
@@ -165,36 +193,38 @@ body {
     font-size: 2.5vh;
 }
 
-label {
-    text-align: center;
-    justify-content: center;
-    font-size: 2.5vh;
-}
-
-.containerInputs {
+.formCadastro {
     display: flex;
-    gap: 2%;
-    width: 50%;
-    align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+    transition: .5s;
 }
 
-.form {
+label {
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
-.flex{
+.inputs {
     display: flex;
-    gap: 15px;
-    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    gap: 9%;
 }
 
-.flex input {
-    border-radius: 8px;
-    padding: 5px;
-    width: 40%;
-    border:none;
-    transition: .5s;
+.formCadastro input {
+    border: 1px solid #E23636;
+    border-radius: 5px;
+    padding: 4px;
+    color: #F78F3F;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    margin-top: 5%;
 }

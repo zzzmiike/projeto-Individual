@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
     <script src="./script/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
     <title>Hero Universe</title>
 </head>
 
@@ -26,36 +28,51 @@
             <span class="texto Cadastro">
                 faça aqui o seu cadastro para poder fazer o quiz sobre os personagens da MARVEL.
             </span>
-            <div class="form">
-                <label for="inp_nome">
-                    Nome:
-                    <input type="text" id="inp_nome" placeholder="Tony">
+            <div class="formCadastro">
+                <label for="email">
+                    email:
+                    <input type="text" id="inp_email" name="email" placeholder="tonystark@avengers.com">
                 </label>
-                <div class="flex">
-                    <label for="inp_username">
+                <div class="formCadastro inputs">
+                    <label for="nome">
+                        Nome:
+                        <input type="text" id="inp_nome" name="nome" placeholder="Tony Stark" />
+                    </label>
+                    <label for="username">
                         Username:
-                        <input type="text" id="inp_username" placeholder="username">
+                        <input type="text" id="inp_user" name="username" placeholder="tonystark">
                     </label>
                 </div>
-                <label for="inp_email">
-                    Email:
-                    <input type="text" id="inp_email" placeholder="email@latech.com">
-                </label>
-                <label for="inp_senha">
+                <label for="senha">
                     Senha:
-                    <input type="password" id="inp_senha" placeholder="********">
+                    <input type="password" id="inp_senha" name="senha" placeholder="********">
                 </label>
-                <label for="inp_confiSenha">
-                    Confirme sua senha:
-                    <input type="password" id="inp_confiSenha" placeholder="********">
+                <label for="confirSenha">
+                    Confirme sua Senha:
+                    <input type="password" id="inp_confiSenha" name="confirSenha" placeholder="********">
+
                 </label>
-                <button class="btn" onclick="cadastrar()"> Cadastrar</button>
-                <div id="div_aguardar" class="loading-div">
+                <div class="container">
+                    <div class="selectsPerso">
+                        <select id="selectPersonagem">
+                            <option value="SelecioneUmPersonagem" selected>Selecione um Personagem</option>
+                            <option value="capitain_american">Capitão América</option>
+                            <option value="iron_man">Homem de Ferro</option>
+                            <option value="thor">Thor</option>
+                            <option value="hulk">Hulk</option>
+                            <option value="black_widow">Viúva Negra</option>
+                            <option value="black_panther">Pantera Negra</option>
+                        </select>
+                        <button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>
+                    </div>
                 </div>
-                <div id="div_erros_login"></div>
+                <div id="mesagemCadastro">
+                </div>
+                <div id="divButton">
+                    <button onclick="cadastrar()" class="btn">Cadastrar</button>
+                </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
