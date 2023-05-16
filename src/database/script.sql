@@ -21,8 +21,12 @@ CREATE TABLE usuario (
 );
 
 insert into personagem values
-('1009220', 'Capitão America', 'Capitão América é um super-herói de histórias em quadrinhos americanos publicado pela Marvel Comics. Criado por Joe Simon e Jack Kirby, o primeiro personagem apareceu em Captain America Comics # 1 da Timely Comics, antecessora da Marvel Comics.', './assets/img/pesons/capitao.png'),
-('1009368', 'Homem de Ferro', 'Homem de Ferro é um super-herói de histórias em quadrinhos americanos publicados pela Marvel Comics.', './assets/img/pesons/capitao.png');
+('1009220', 'Capitão America', 'Capitão América é um super-herói de histórias em quadrinhos americanos publicado pela Marvel Comics.', './assets/img/pesons/capitao.png'),
+('1009368', 'Homem de Ferro', 'O Homem de Ferro foi um personagem dos quadrinhos publicados pela Marvel Comics.', './assets/img/pesons/iron-man.svg'),
+('1011025', 'Thor', 'Thor é um personagem fictício que aparece nas histórias em quadrinhos, publicadas pela Marvel Comics.', './assets/img/pesons/capitao.png'),
+('1009351', 'Hulk', '.', './assets/img/pesons/capitao.png'),
+('1009189', 'Viuva Negra', '.', './assets/img/pesons/capitao.png'),
+('1009187', 'Pantera Negra', '.', './assets/img/pesons/capitao.png');
 
 select usuario.nome as NomeDoUsuario,
 			usuario.username as Username,
