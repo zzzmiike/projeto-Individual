@@ -106,8 +106,9 @@ function cadastrar() {
     var userVar = inp_user.value;
     var senhaVar = inp_senha.value;
     var confiSenhaVar = inp_confiSenha.value;
+    idPersonagem
 
-    if (emailVar == "" || nomeVar == "" || userVar == "" || senhaVar == "" || confiSenhaVar == "") {
+    if (emailVar == "" || nomeVar == "" || userVar == "" || senhaVar == "" || confiSenhaVar == "" || idPersonagem == "") {
 
         finalizarAguardar();
         return false;
@@ -124,20 +125,20 @@ function cadastrar() {
             nomeServer: nomeVar,
             userServer: userVar,
             emailServer: emailVar,
-            senhaServer: senhaVar
+            senhaServer: senhaVar,
+            idPersoServer: idPersonagem
         })
     }).then(function (resposta) {
 
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            cardErro.style.display = "block";
 
             mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
             setTimeout(() => {
                 window.location = "login.html";
-            }, "2000")
+            }, "200")
 
             limparFormulario();
             finalizarAguardar();
@@ -150,4 +151,89 @@ function cadastrar() {
     });
 
     return false;
+}
+
+
+function entrar() {
+
+    var userVar = inp_user.value;
+    var senhaVar = inp_senha.value;
+
+    if (userVar == "" || senhaVar == "") {
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        finalizarAguardar();
+        return false;
+    }
+    else {
+        setInterval(sumirMensagem, 5000)
+    }
+
+    console.log("FORM LOGIN: ", userVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuario/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            userServer: userVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                sessionStorage.USERNAME_USUARIO = json.username;
+                sessionStorage.ID_USUARIO = json.idUsuario;
+
+                setTimeout(function () {
+                    window.location = "personagem.html";
+                }, 1000); // apenas para exibir o loading
+
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizarAguardar(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}
+
+function sumirMensagem() {
+    cardErro.style.display = "none"
+}
+
+function validarSessao() {
+    // aguardar();
+
+    var user = sessionStorage.USERNAME_USUARIO;
+
+    var b_usuario = document.getElementById("b_usuario");
+
+    if (user != null) {
+        // window.alert(`Seja bem-vindo, ${nome}!`);
+        b_usuario.innerHTML = user;
+
+        // finalizarAguardar();
+    } else {
+        window.location = "../login.html";
+    }
 }
