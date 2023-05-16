@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Marvel&display=swap');
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: #F78F3F;
+}
+::-webkit-scrollbar-track{
+    background-color: #ff8222;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #E23636;
+    border-radius: 50px;
+}
+
 
 html {
     scroll-behavior: smooth;
@@ -15,13 +28,14 @@ body {
 }
 
 #navbar {
+    height: 6vh;
+    width: 100%;
     position: relative;
-    top: 0;
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    background-color: #E23636;
     padding: 1% 2% 1% 1%;
+    top: 0;
+    background-color: #E23636;
 }
 
 #logo {
@@ -125,8 +139,13 @@ body {
 
 .container .selectsPerso {
     display: flex;
-    gap: 10vh;
+    gap: 30px;
     width: auto;
+}
+
+#selectPersonagem {
+    width: 50%;
+    font-size: 10px;
 }
 
 .selectsPerso select {
@@ -134,7 +153,6 @@ body {
     color: #F78F3F;
     border-radius: 5px;
     cursor: pointer;
-    width: auto;
 }
 
 .btnl {
@@ -143,17 +161,20 @@ body {
     align-items: center;
     border: 1px solid #E23636;
     cursor: pointer;
+    font-size: 10px;
     width: 30%;
     color: #F78F3F;
     border-radius: 5px;
     transition: .5s;
 }
-#divButton{
+
+#divButton {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .btn {
     display: flex;
     justify-content: center;
@@ -167,6 +188,7 @@ body {
 }
 
 .containerCadastro {
+    padding: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -214,10 +236,14 @@ label {
     gap: 9%;
 }
 
+.inputs input {
+    width: 95%;
+}
+
 .formCadastro input {
-    border: 1px solid #E23636;
+    border: 1px solid #F78F3F;
     border-radius: 5px;
-    padding: 4px;
+    padding: 2px;
     color: #F78F3F;
 }
 
