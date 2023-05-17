@@ -6,7 +6,14 @@ function createHash(timestamp) {
     const hash = CryptoJS.MD5(stringToHash).toString();
     return hash;
 }
+var selecao = "";
 
+function alterar() {
+    selecao = document.getElementById('selectPersonagem');
+    var nome = selecao.value;
+    console.log(nome);
+
+}
 var idPersonagem = 0;
 
 function acharPersonagem() {
@@ -23,30 +30,46 @@ function acharPersonagem() {
         if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
             mesagemCadastro.innerHTML = `Selecione um Personagem!!`
             selectPersonagem.style.borderColor = "#b03838";
-        } else if (elementoClicado == `<button onclick="acharPersonagem()" class="btn">Selecionar Personagem</button>`) {
+        } else if (elementoClicado == `<button onclick="acharPersonagem()">Selecionar Personagem</button>`) {
             person.innerHTML = `Selecione um Personagem!!`
             selectPersonagem.style.borderColor = "#b03838";
         }
-    } else if (selectedValue == "capitain_american") {
-        if (elementoClicado == `<button onclick="acharPersonagem()" class="btn">Selecionar Personagem</button>`) {
+    } else if (selectedValue == "capitain-america") {
+        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
             idPersonagem = 1009220;
         } else {
             idPersonagem = 1009220;
         }
-    } else if (selectedValue == "iron_man") {
-        if (elementoClicado == `<button onclick="acharPersonagem()" class="btn">Selecionar Personagem</button>`) {
+    } else if (selectedValue == "iron-man") {
+        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
             idPersonagem = 1009368;
         } else {
             idPersonagem = 1009368;
         }
     } else if (selectedValue == "thor") {
-        idPersonagem = 1011025;
+        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
+            idPersonagem = 1011025;
+        } else {
+            idPersonagem = 1011025;
+        }
     } else if (selectedValue == "hulk") {
-        idPersonagem = 1009351;
+        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
+            idPersonagem = 1009351;
+        } else {
+            idPersonagem = 1009351;
+        }
     } else if (selectedValue == "black_widow") {
-        idPersonagem = 1009189;
+        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
+            idPersonagem = 1009189;
+        } else {
+            idPersonagem = 1009189;
+        }
     } else if (selectedValue == "black_panther") {
-        idPersonagem = 1009187;
+        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
+            idPersonagem = 1009187;
+        } else {
+            idPersonagem = 1009187;
+        }
     }
 
     const urlPerson = `https://gateway.marvel.com/v1/public/characters/${idPersonagem}?&ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`;
@@ -193,6 +216,8 @@ function entrar() {
 
                 sessionStorage.USERNAME_USUARIO = json.username;
                 sessionStorage.ID_USUARIO = json.idUsuario;
+                sessionStorage.FK_USUARIO = json.fkPersonagem;
+
 
                 setTimeout(function () {
                     window.location = "personagem.html";
@@ -225,8 +250,32 @@ function validarSessao() {
     // aguardar();
 
     var user = sessionStorage.USERNAME_USUARIO;
+    var fkPersonagem = sessionStorage.FK_USUARIO;
 
     var b_usuario = document.getElementById("b_usuario");
+
+    if (fkPersonagem == "1009220" && user != null) {
+        liperson.innerHTML = `
+        <img id="iconeperso" src="./assets/img/icons/capitain-america.svg">
+        `
+    } else if (fkPersonagem == "1009368" && user != null) {
+        liperson.innerHTML = `
+        <img id="iconeperso" src="./assets/img/icons/iron-man.svg">
+        `
+    } else if (fkPersonagem == "1009187" && user != null) {
+        liperson.innerHTML = `
+        <img id="iconeperso" src="./assets/img/icons/black-panther.svg">
+        `
+    } else if (fkPersonagem == "1009189" && user != null) {
+        liperson.innerHTML = `
+        <img id="iconeperso" src="./assets/img/icons/black-window.svg">
+        `
+    } else if (fkPersonagem == "1011025" && user != null) {
+        liperson.innerHTML = `
+        <img id="iconeperso" src="./assets/img/icons/thorr.svg">
+        `
+    }
+
 
     if (user != null) {
         // window.alert(`Seja bem-vindo, ${nome}!`);

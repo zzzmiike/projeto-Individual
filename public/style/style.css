@@ -34,6 +34,7 @@ body {
     position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1% 2% 1% 1%;
     top: 0;
     background-color: #E23636;
@@ -45,7 +46,7 @@ body {
 }
 
 #logo img {
-    width: 5%;
+    width: 4%;
 }
 
 #navbar ul {
@@ -193,10 +194,11 @@ body {
 }
 
 .containerCadastro {
-    padding: 5%;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 90vh;
 }
 
 .titulo-pages {
@@ -258,4 +260,22 @@ label {
     height: auto;
     width: 100%;
     margin-top: 5%;
+}
+
+#divimagem {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+#iconeperso{
+    position: relative;
+    margin-left: 90%;
+    width: 20%;
+}
+
+#divimagem img{
+    width: 30px;
 }
