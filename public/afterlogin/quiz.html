@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
+    <script src="../script/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <title>Quiz Sobre Personagem</title>
+</head>
+
+<body onload="validarSessao()">
+    <header>
+        <nav id="navbar">
+            <div id="logo">
+                <img src="../assets/img/icons/avengers.svg" alt="">
+                <span>
+                    Hero Universe
+                </span>
+            </div>
+            <ul>
+                <li><a href="./personagem.html">Inicio</a></li>
+                <li><a href="./dashboard.html">Desempenho</a></li>
+                <li id="liperson"></li>
+                <li>Olá, <span id="b_usuario"></span></li>
+                <li><a href="../login.html" onclick="limparSessao()" class="nav-link link-animation">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+</html>

@@ -1,22 +1,53 @@
 const privateKey = "4a11e7353de06c247a0b1fc44057121851474704";
 const publicKey = "eaf3fa204749e1b8d92f1585d6b58007";
+var selecao = "";
+var idPersonagem = 0;
 
 function createHash(timestamp) {
     const stringToHash = timestamp + privateKey + publicKey;
     const hash = CryptoJS.MD5(stringToHash).toString();
     return hash;
 }
-var selecao = "";
 
 function alterar() {
     selecao = document.getElementById('selectPersonagem');
     var nome = selecao.value;
     console.log(nome);
+    if (nome == "SelecioneUmPersonagem"){
+        idPersonagem = 0;
+        mesagemCadastro.innerHTML = `Selecione um Personagem!!`
+        selectPersonagem.style.borderColor = "#F78F3F";        
+    } else if (nome == "capitain-america"){
+        idPersonagem = 1009220
+        mesagemCadastro.innerHTML = ``
+        selectPersonagem.style.borderColor = "#b03838";        
+    } else if (nome == "iron-man") {
+        idPersonagem = 1009368
+        mesagemCadastro.innerHTML = ``
+        selectPersonagem.style.borderColor = "#b03838";        
+    } else if (nome == "thor") {
+        idPersonagem = 1011025
+        mesagemCadastro.innerHTML = ``
+        selectPersonagem.style.borderColor = "#b03838";        
+    } else if (nome == "hulk") {
+        idPersonagem = 1009351
+        mesagemCadastro.innerHTML = ``
+        selectPersonagem.style.borderColor = "#b03838";        
+    } else if (nome == "black-widow") {
+        idPersonagem = 1009189
+        mesagemCadastro.innerHTML = ``
+        selectPersonagem.style.borderColor = "#b03838";        
+    } else if (nome == "black-panther") {
+        idPersonagem = 1009187
+        mesagemCadastro.innerHTML = ``
+        selectPersonagem.style.borderColor = "#b03838";        
+    }
+
+    console.log(idPersonagem);
 
 }
-var idPersonagem = 0;
 
-function acharPersonagem() {
+/*function acharPersonagem() {
     idPersonagem = 0;
     const timeStamp = new Date().getTime();
     const hash = createHash(timeStamp);
@@ -83,7 +114,7 @@ function acharPersonagem() {
     };
     xhttp.open("GET", urlPerson, true);
     xhttp.send();
-}
+}*/
 
 function getPerson(dados) {
 
@@ -133,7 +164,6 @@ function cadastrar() {
 
     if (emailVar == "" || nomeVar == "" || userVar == "" || senhaVar == "" || confiSenhaVar == "" || idPersonagem == "") {
 
-        finalizarAguardar();
         return false;
     }
 
@@ -220,7 +250,7 @@ function entrar() {
 
 
                 setTimeout(function () {
-                    window.location = "personagem.html";
+                    window.location = "./afterlogin/personagem.html";
                 }, 1000); // apenas para exibir o loading
 
             });
@@ -256,23 +286,24 @@ function validarSessao() {
 
     if (fkPersonagem == "1009220" && user != null) {
         liperson.innerHTML = `
-        <img id="iconeperso" src="./assets/img/icons/capitain-america.svg">
+        <img id="iconeperso" src="../assets/img/icons/capitain-america.svg">
+        
         `
     } else if (fkPersonagem == "1009368" && user != null) {
         liperson.innerHTML = `
-        <img id="iconeperso" src="./assets/img/icons/iron-man.svg">
+        <img id="iconeperso" src="../assets/img/icons/iron-man.svg">
         `
     } else if (fkPersonagem == "1009187" && user != null) {
         liperson.innerHTML = `
-        <img id="iconeperso" src="./assets/img/icons/black-panther.svg">
+        <img id="iconeperso" src="../assets/img/icons/black-panther.svg">
         `
     } else if (fkPersonagem == "1009189" && user != null) {
         liperson.innerHTML = `
-        <img id="iconeperso" src="./assets/img/icons/black-window.svg">
+        <img id="iconeperso" src="../assets/img/icons/black-window.svg">
         `
     } else if (fkPersonagem == "1011025" && user != null) {
         liperson.innerHTML = `
-        <img id="iconeperso" src="./assets/img/icons/thorr.svg">
+        <img id="iconeperso" src="../assets/img/icons/thorr.svg">
         `
     }
 
