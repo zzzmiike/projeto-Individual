@@ -281,12 +281,12 @@ function entrar() {
 function sumirMensagem() {
     cardErro.style.display = "none"
 }
-
+var fkPersonagem
 function validarSessao() {
     // aguardar();
 
     var user = sessionStorage.USERNAME_USUARIO;
-    var fkPersonagem = sessionStorage.FK_USUARIO;
+    fkPersonagem = sessionStorage.FK_USUARIO;
     personagem = sessionStorage.PERSONAGEM_PERSONAGEM;
 
     var b_usuario = document.getElementById("b_usuario");
@@ -331,110 +331,87 @@ function validarSessao() {
 var questao = 0
 var respostaEscolhida = "";
 
-/*function resposta() {
-
-    respostaEscolhida = document.getElementById('escolha');
-    var resposta = respostaEscolhida.value;
-
-    console.log(resposta)
+function resposta() {
 
     iniciar();
 }
 
-function iniciar() {
-    var capitao = ['', '', '', '', ''];
-    var ferro = [`<h3>Pergunta 1:</h3>
-    <p>Qual o nome do super-herói conhecido como "Homem de Ferro"?</p>
-    <input type="radio" name="pergunta1" id="escolha" value="a" onclick="resposta()"> a) Tony Stark<br>
-    <input type="radio" name="pergunta1" id="escolha value="b" onclick  ="resposta()"> b) Steve Rogers<br>
-    <input type="radio" name="pergunta1" id="escolha value="c" onclick  ="resposta()"> c) Bruce Banner<br>`, 'opa', '3', '4', '5'];
-    var thor = ['', '', '', '', ''];
-    var hulk = ['', '', '', '', ''];
-    var viuva = ['', '', '', '', ''];
-    var pantera = ['', '', '', '', ''];
-    var aranha = ['', '', '', '', ''];
-    if (personagem = "1009220") {
-        for (var i = 0; i <= questao; i++) {
-            quiz.innerHTML = `                        
-            <details class="questao" id="det${i}">
-            <summary id="sum${i}">${i + 1}° Pergunta</summary>
-            <div class="detQuestao">
-                <p>
-                    ${ferro[i]}
-                </p>
-                <div>
-                    <input type="text" id="" class="inputQuestao" onkeyup="verificar()" placeholder="Insira aqui a sua resposta">
-                </div>
-            </div>
-        </details>
-        `
-        }
-        questao++
 
-    }
-}*/
 
-var perguntas = [
+var capitao = ['', '', '', '', ''];
+var thor = ['', '', '', '', ''];
+var hulk = ['', '', '', '', ''];
+var viuva = ['', '', '', '', ''];
+var pantera = ['', '', '', '', ''];
+var aranha = ['Qual e o nome do ', '', '', '', ''];
+var ferro = [
     {
-        pergunta: "Qual o nome do ator que interpreta o Homem de Ferro nos filmes da Marvel?",
-        opcoes: ["Robert Downey Jr.", "Chris Hemsworth", "Mark Ruffalo"],
+        pergunta: 'Qual o nome do super-herói conhecido como "Homem de Ferro"?',
+        opcoes: ['Tony Stark', 'Steve Rogers', 'Bruce Banner'],
         resposta: 0
     },
     {
-        pergunta: "Qual é a identidade civil do Homem de Ferro?",
-        opcoes: ["Tony Stark", "Steve Rogers", "Bruce Banner"],
+        pergunta: 'Qual o nome do ator que interpreta o Homem de Ferro nos filmes da Marvel?',
+        opcoes: ['Robert Downey Jr.', 'Chris Hemsworth', 'Mark Ruffalo'],
         resposta: 0
     },
     {
-        pergunta: "Qual é o nome da empresa de tecnologia fundada por Tony Stark?",
-        opcoes: ["Stark Industries", "Oscorp", "Wayne Enterprises"],
+        pergunta: 'Qual é o nome da empresa de tecnologia fundada por Tony Stark?',
+        opcoes: ['Stark Industries', 'Oscorp', 'Wayne Enterprises'],
         resposta: 0
     },
     {
-        pergunta: "Qual é a cor predominante na armadura do Homem de Ferro?",
-        opcoes: ["Vermelho e Dourado", "Verde", "Azul e Vermelho"],
+        pergunta: 'Qual é a cor predominante na armadura do Homem de Ferro?',
+        opcoes: ['Vermelho e Dourado', 'Verde', 'Azul e Vermelho'],
         resposta: 0
     },
     {
-        pergunta: "Qual é o nome da assistente virtual desenvolvida por Tony Stark?",
-        opcoes: ["JARVIS", "FRIDAY", "EDITH"],
+        pergunta: 'Qual é o nome da assistente virtual desenvolvida por Tony Stark?',
+        opcoes: ['JARVIS', 'FRIDAY', 'EDITH'],
         resposta: 0
     }
 ];
 
-var quizContainer = document.getElementById("quiz");
+var questaoAtual = 0;
+var pergunta = "";
+function iniciar() {
+    if (fkPersonagem == "1009368") {
+        pergunta = ferro[questaoAtual];
+        quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
+        quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
 
-function exibirPerguntas() {
-    quiz.innerHTML = "";
-    for (var i = 0; i < perguntas.length; i++) {
-        quiz.innerHTML += "<h3>Pergunta " + (i + 1) + ":</h3>";
-        quiz.innerHTML += "<p>" + perguntas[i].pergunta + "</p>";
-        for (var j = 0; j < perguntas[i].opcoes.length; j++) {
-            quiz.innerHTML += '<input type="radio" name="pergunta' + i + '" value="' + j + '"> ' + perguntas[i].opcoes[j] + "<br>";
+        for (var i = 0; i < pergunta.opcoes.length; i++) {
+            quiz.innerHTML += `<input type="radio" name="resposta" value="${i}" onchange="verificarRespostas()"> ${pergunta.opcoes[i]}<br>
+    `;
         }
-        quiz.innerHTML += "<br>";
-    }
+    } else if (fkPersonagem == ""){}
 }
 
 function verificarRespostas() {
-    var respostasCorretas = 0;
-    var respostasSelecionadas = [];
+    var opcoes = document.getElementsByName('resposta');
+    var respostaSelecionada = -1;
 
-    for (var i = 0; i < perguntas.length; i++) {
-        var opcoes = document.getElementsByName("pergunta" + i);
-        for (var j = 0; j < opcoes.length; j++) {
-            if (opcoes[j].checked) {
-                respostasSelecionadas.push(opcoes[j].value);
-                if (opcoes[j].value == perguntas[i].resposta) {
-                    respostasCorretas++;
-                }
-                break;
-            }
+    for (var i = 0; i < opcoes.length; i++) {
+        if (opcoes[i].checked) {
+            respostaSelecionada = parseInt(opcoes[i].value);
+            break;
         }
     }
 
-    var resultado = "Você acertou " + respostasCorretas + " de " + perguntas.length + " perguntas.";
-    alert(resultado);
-}
+    if (respostaSelecionada === ferro[questaoAtual].resposta) {
+        alert('Resposta correta!');
+        
+    } else {
+        alert('Resposta incorreta!');
+    }
 
-exibirPerguntas();
+    questaoAtual++;
+
+    if (questaoAtual < ferro.length) {
+        iniciar();
+    } else {
+
+        alert('Quiz concluído!');
+        window.location = "./dashboard.html";
+    }
+}
