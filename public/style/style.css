@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Marvel&display=swap');
+
+/*Estilos Universais*/
 ::-webkit-scrollbar{
     width: 10px;
     background-color: #F78F3F;
 }
+
 ::-webkit-scrollbar-track{
     background-color: #ff8222;
 }
@@ -91,6 +94,17 @@ body {
     width: 100%;
 }
 
+.container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+
+}
+
+/*Landing Page*/
 .main-index {
     display: flex;
     position: relative;
@@ -146,17 +160,12 @@ body {
     width: 30vh;
 }
 
-
-.container {
-    display: flex;
-
-}
-
 #selectPersonagem {
     width: 100%;
 }
 
 .selectsPerso select {
+    position: relative;
     border: 1px solid #E23636;
     color: #F78F3F;
     border-radius: 5px;
@@ -230,7 +239,6 @@ label {
     padding: 0;
     margin: 0;
     flex-direction: row;
-    background-color: aliceblue;
     width: 98%;
 }
 
@@ -244,14 +252,6 @@ label {
     color: #F78F3F;
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    height: auto;
-    width: 100%;
-    margin-top: 5%;
-}
-
 #divimagem {
     width: 100%;
     display: flex;
@@ -260,7 +260,24 @@ label {
     align-items: center;
 }
 
-
 #divimagem img{
     width: 30px;
+}
+
+/*Inicio do Quiz*/
+#quiz{
+    position: relative;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5%;
+}
+
+.container .telaquiz{
+    width: 100vh;
+    height: 89vh;
+    position: relative;
+}
+
+#nomePersonagem {
+    font-size: 4vh;
 }
