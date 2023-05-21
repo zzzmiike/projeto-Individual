@@ -338,7 +338,33 @@ function resposta() {
 
 
 
-var capitao = ['', '', '', '', ''];
+var capitao = [
+    {
+        pergunta: 'Qual é o nome verdadeiro do Capitão América?',
+        opcoes: ['Tony Stark', 'Bruce Banner', 'Steve Rogers'],
+        resposta: 2
+    },
+    {
+        pergunta: 'Qual foi o experimento que transformou Steve Rogers no Capitão América?',
+        opcoes: ['Radiação Gama', 'Bomba de Raios Stark', 'Soro do Super Soldado'],
+        resposta: 2
+    },
+    {
+        pergunta: 'Quem é o melhor amigo de Steve Rogers?',
+        opcoes: [ 'Sam Wilson', 'Bucky Barnes','Tony Stark'],
+        resposta: 1
+    },
+    {
+        pergunta: 'Qual é o nome do escudo usado pelo Capitão América?',
+        opcoes: ['Escudo do Vibranium', 'Escudo do Adamantium', 'Escudo do Aço'],
+        resposta: 0
+    },
+    {
+        pergunta: 'Qual é o lema do Capitão América?',
+        opcoes: ['Herói da América', 'Verdade, Justiça e Liberdade','Avante, Vingadores'],
+        resposta: 1
+    }
+];
 var thor = ['', '', '', '', ''];
 var hulk = ['', '', '', '', ''];
 var viuva = ['', '', '', '', ''];
@@ -347,13 +373,13 @@ var aranha = ['Qual e o nome do ', '', '', '', ''];
 var ferro = [
     {
         pergunta: 'Qual o nome do super-herói conhecido como "Homem de Ferro"?',
-        opcoes: ['Tony Stark', 'Steve Rogers', 'Bruce Banner'],
-        resposta: 0
+        opcoes: ['Steve Rogers', 'Tony Stark', 'Bruce Banner'],
+        resposta: 1
     },
     {
         pergunta: 'Qual o nome do ator que interpreta o Homem de Ferro nos filmes da Marvel?',
-        opcoes: ['Robert Downey Jr.', 'Chris Hemsworth', 'Mark Ruffalo'],
-        resposta: 0
+        opcoes: ['Chris Hemsworth', 'Mark Ruffalo', 'Robert Downey Jr.'],
+        resposta: 2
     },
     {
         pergunta: 'Qual é o nome da empresa de tecnologia fundada por Tony Stark?',
@@ -362,16 +388,16 @@ var ferro = [
     },
     {
         pergunta: 'Qual é a cor predominante na armadura do Homem de Ferro?',
-        opcoes: ['Vermelho e Dourado', 'Verde', 'Azul e Vermelho'],
-        resposta: 0
+        opcoes: ['Verde', 'Vermelho e Dourado', 'Azul e Vermelho'],
+        resposta: 1
     },
     {
         pergunta: 'Qual é o nome da assistente virtual desenvolvida por Tony Stark?',
-        opcoes: ['JARVIS', 'FRIDAY', 'EDITH'],
-        resposta: 0
+        opcoes: ['FRIDAY', 'EDITH', 'JARVIS'],
+        resposta: 2
     }
 ];
-
+var corretas = 0;
 var questaoAtual = 0;
 var pergunta = "";
 function iniciar() {
@@ -381,10 +407,25 @@ function iniciar() {
         quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
 
         for (var i = 0; i < pergunta.opcoes.length; i++) {
-            quiz.innerHTML += `<input type="radio" name="resposta" value="${i}" onchange="verificarRespostas()"> ${pergunta.opcoes[i]}<br>
-    `;
+            quiz.innerHTML += `
+            <div>
+                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br>
+            </div>
+                `;
         }
-    } else if (fkPersonagem == ""){}
+    } else if (fkPersonagem == "1009220") {
+        pergunta = capitao[questaoAtual];
+        quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
+        quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
+
+        for (var i = 0; i < pergunta.opcoes.length; i++) {
+            quiz.innerHTML += `
+            <div>
+                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br>
+            </div>
+                `;
+        }
+    }
 }
 
 function verificarRespostas() {
@@ -400,7 +441,8 @@ function verificarRespostas() {
 
     if (respostaSelecionada === ferro[questaoAtual].resposta) {
         alert('Resposta correta!');
-        
+        corretas++
+
     } else {
         alert('Resposta incorreta!');
     }

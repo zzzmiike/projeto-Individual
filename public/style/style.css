@@ -265,8 +265,11 @@ label {
 }
 
 /*Inicio do Quiz*/
-#quiz{
-    position: relative;
+.quiz{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     gap: 15px;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 5%;
