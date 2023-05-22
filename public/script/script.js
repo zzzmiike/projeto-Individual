@@ -351,7 +351,7 @@ var capitao = [
     },
     {
         pergunta: 'Quem é o melhor amigo de Steve Rogers?',
-        opcoes: [ 'Sam Wilson', 'Bucky Barnes','Tony Stark'],
+        opcoes: ['Sam Wilson', 'Bucky Barnes', 'Tony Stark'],
         resposta: 1
     },
     {
@@ -361,15 +361,10 @@ var capitao = [
     },
     {
         pergunta: 'Qual é o lema do Capitão América?',
-        opcoes: ['Herói da América', 'Verdade, Justiça e Liberdade','Avante, Vingadores'],
+        opcoes: ['Herói da América', 'Verdade, Justiça e Liberdade', 'Avante, Vingadores'],
         resposta: 1
     }
 ];
-var thor = ['', '', '', '', ''];
-var hulk = ['', '', '', '', ''];
-var viuva = ['', '', '', '', ''];
-var pantera = ['', '', '', '', ''];
-var aranha = ['Qual e o nome do ', '', '', '', ''];
 var ferro = [
     {
         pergunta: 'Qual o nome do super-herói conhecido como "Homem de Ferro"?',
@@ -397,6 +392,11 @@ var ferro = [
         resposta: 2
     }
 ];
+var thor = ['', '', '', '', ''];
+var hulk = ['', '', '', '', ''];
+var viuva = ['', '', '', '', ''];
+var pantera = ['', '', '', '', ''];
+var aranha = ['Qual e o nome do ', '', '', '', ''];
 var corretas = 0;
 var questaoAtual = 0;
 var pergunta = "";
@@ -418,6 +418,17 @@ function iniciar() {
         quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
         quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
 
+        for (var i = 0; i < pergunta.opcoes.length; i++) {
+            quiz.innerHTML += `
+            <div>
+                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br>
+            </div>
+                `;
+        }
+    } else if (fkPersonagem == "1009187") {
+        pergunta = pantera[questaoAtual];
+        quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
+        quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
         for (var i = 0; i < pergunta.opcoes.length; i++) {
             quiz.innerHTML += `
             <div>
