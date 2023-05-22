@@ -30,34 +30,13 @@
             </ul>
         </nav>
     </header>
-    <div class="containerPerso">
+    <div id="containerPerso">
 
         <div class="container cardPersonagem">
             <div id="person">
-            </div>
 
         </div>
     </div>
 </body>
 
 </html>
-
-<script>
-    function verificarRespostas() {
-        var respostasCorretas = 0;
-        var respostasErradas = 0;
-
-        var pergunta1 = document.querySelector('input[name="pergunta1"]:checked').value;
-        if (pergunta1 === "a") {
-            respostasCorretas++;
-        } else {
-            respostasErradas++;
-        }
-
-        var pergunta2 = document.querySelector('input[name="pergunta2"]:checked').value;
-        if (pergunta2 === "a") {
-            respostasCorretas++;
-        }
-    }
-
-</script>

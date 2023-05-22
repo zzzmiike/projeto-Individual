@@ -70,7 +70,9 @@ body {
 
 #iconeperso{
     width: 8vh;
-    border: 2px solid #F78F3F;
+    background-color:white;
+    border-radius:50%;
+    border: 3px solid #F78F3F;
 }
 
 .nav-link {
@@ -150,10 +152,6 @@ body {
     display: flex;
     position: absolute;
     font-size: 40px;
-}
-
-.tituloPersonagem {
-    font-size: 6vh;
 }
 
 .personagemImg {
@@ -283,4 +281,26 @@ label {
 
 #nomePersonagem {
     font-size: 4vh;
+}
+
+/*Inicial de Dash, Quiz e Resumo de personagem*/
+#containerPerso{
+    width: 100vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter:blur(4px);
+}
+
+.tituloPersonagem {
+    font-size: 6vh;
+}
+
+.textsPerso {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

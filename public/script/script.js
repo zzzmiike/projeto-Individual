@@ -120,7 +120,7 @@ function alterar() {
     xhttp.send();
 }*/
 
-function getPerson(dados) {
+/*function getPerson(dados) {
 
     console.log(dados["data"]["results"]);
     let coisasPersonagens = dados["data"]["results"];
@@ -155,7 +155,7 @@ function getPerson(dados) {
         i++;
     }
 
-}
+}*/
 
 function cadastrar() {
 
@@ -196,7 +196,7 @@ function cadastrar() {
 
             setTimeout(() => {
                 window.location = "login.html";
-            }, "200")
+            }, "1500")
 
             limparFormulario();
             finalizarAguardar();
@@ -257,7 +257,7 @@ function entrar() {
 
                 setTimeout(function () {
                     window.location = "./afterlogin/personagem.html";
-                }, 1000); // apenas para exibir o loading
+                }, 1500); // apenas para exibir o loading
 
             });
 
@@ -284,7 +284,6 @@ function sumirMensagem() {
 var fkPersonagem
 function validarSessao() {
     // aguardar();
-
     var user = sessionStorage.USERNAME_USUARIO;
     fkPersonagem = sessionStorage.FK_USUARIO;
     personagem = sessionStorage.PERSONAGEM_PERSONAGEM;
@@ -295,11 +294,21 @@ function validarSessao() {
     if (fkPersonagem == "1009220" && user != null) {
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/capitain-america.svg">
-        
         `
+        
     } else if (fkPersonagem == "1009368" && user != null) {
         liperson.innerHTML = `
-        <img id="iconeperso" src="../assets/img/icons/iron-man.svg">
+        <img id="iconeperso" style="background-color:white; border-radius:50%;" src="../assets/img/icons/iron-man.svg">
+        `
+        containerPerso.innerHTML += `
+        <div class="textsPerso">
+        <span class="tituloPersonagem">${personagem}</span><br>
+        <span>
+        </span>
+        <div id="imgPerso">
+        <img src="../assets/img/persons/iron.png">
+        </div>
+        </div>
         `
     } else if (fkPersonagem == "1009187" && user != null) {
         liperson.innerHTML = `
@@ -416,26 +425,27 @@ function iniciar() {
     } else if (fkPersonagem == "1009220") {
         pergunta = capitao[questaoAtual];
         quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
-        quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
+        quiz.innerHTML += `<p>${pergunta.pergunta}</p>
+        <div>`;
 
         for (var i = 0; i < pergunta.opcoes.length; i++) {
             quiz.innerHTML += `
-            <div>
                 <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br>
-            </div>
                 `;
         }
+        quiz.innerHTML += `</div>`
     } else if (fkPersonagem == "1009187") {
         pergunta = pantera[questaoAtual];
         quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
-        quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
+        quiz.innerHTML += `<p>${pergunta.pergunta}</p>
+        <div>
+        `;
         for (var i = 0; i < pergunta.opcoes.length; i++) {
             quiz.innerHTML += `
-            <div>
                 <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br>
-            </div>
                 `;
         }
+        quiz.innerHTML += `</div>`
     }
 }
 
@@ -451,8 +461,11 @@ function verificarRespostas() {
     }
 
     if (respostaSelecionada === ferro[questaoAtual].resposta) {
-        alert('Resposta correta!');
+        quiz.innerHTML += `
+        <h4>Resposta Correta</h4>
+        `
         corretas++
+        console.log(corretas)
 
     } else {
         alert('Resposta incorreta!');
