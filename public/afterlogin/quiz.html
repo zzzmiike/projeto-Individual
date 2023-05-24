@@ -22,8 +22,8 @@
                 </span>
             </div>
             <ul>
-                <li><a href="./personagem.html">Inicio</a></li>
-                <li><a href="./dashboard.html">Desempenho</a></li>
+                <li><a href="./personagem.html" class="nav-link link-animation">Inicio</a></li>
+                <li><a href="./dashboard.html" class="nav-link link-animation">Desempenho</a></li>
                 <li id="liperson"></li>
                 <li>Olá, <span id="b_usuario"></span></li>
                 <li><a href="../login.html" onclick="limparSessao()" class="nav-link link-animation">Sair</a></li>
@@ -33,8 +33,10 @@
     <div class="container">
         <div class="container telaquiz">
             <div id="quiz" class="quiz">
-                Bem vindo ao Quiz sobre o personagem <span id="nomePersonagem"></span>
+                Bem vindo ao Quiz sobre o personagem <span id="nome_perso"></span>
                 <button onclick="iniciar()" class="btn">Iniciar Quiz</button>
+            </div>
+            <div class="inputQuiz" id="inputQuiz">
             </div>
         </div>
     </div>
