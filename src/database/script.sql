@@ -17,13 +17,26 @@ CREATE TABLE personagem (
 
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(100) UNIQUE,
-    nome VARCHAR(250),
-    email VARCHAR(250) UNIQUE,
-    senha VARCHAR(50),
-    fkPersonagem INT,
-    CONSTRAINT fkpersonagem FOREIGN KEY (fkPersonagem)
+    username VARCHAR(100) NOT NULL UNIQUE,
+    nome VARCHAR(250) NOT NULL,
+    email VARCHAR(250) NOT NULL UNIQUE,
+    senha VARCHAR(50) NOT NULL,
+    fkPersonagem INT NOT NULL,
+    FOREIGN KEY (fkPersonagem)
         REFERENCES personagem (idPersonagem)
+);
+
+CREATE TABLE respostas (
+    idResposta INT AUTO_INCREMENT,
+    fkPersoResp INT,
+    FOREIGN KEY (fkPersoResp)
+        REFERENCES personagem (idPersonagem),
+    fkUsuario INT,
+    FOREIGN KEY (fkUsuario)
+        REFERENCES usuario (idUsuario),
+    PRIMARY KEY (idResposta , fkPersoResp , fkUsuario),
+    acertos INT,
+    dtResposta DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 insert into personagem values
@@ -40,9 +53,11 @@ Nascida na União Soviética, Natalia Alianovna Romanova foi criada por Stan Lee
 ('1009187', 'Pantera Negra', 'Pantera Negra é um super-herói das histórias em quadrinhos publicadas pela Marvel Comics, cuja identidade secreta é a de TChalla, rei de Wakanda, um reino fictício na África. O personagem foi criado pelo escritor e editor Stan Lee e pelo escritor e ilustrador Jack Kirby, aparecendo pela primeira vez em Fantastic Four nº 52 (julho de 1966) na Era de Prata das histórias em quadrinhos. Além de possuir habilidades aprimoradas alcançadas através de um antigo ritual de Wakanda, TChalla também conta com seu intelecto genial, treinamento físico rigoroso, habilidade em artes marciais, acesso a tecnologias avançadas e riqueza para combater seus inimigos. Pantera Negra também é conhecido por seu relacionamento com a super-heroína Tempestade dos X-Men. Embora os dois fossem casados e se envolvessem em inúmeras batalhas, suas lealdades colocariam uma pressão sobre o relacionamento, o que levaria a um eventual divórcio.
 O Pantera Negra é o primeiro super-herói de ascendência africana criado por uma editora mainstream de quadrinhos norte-americanos que estreou anos antes dos super-heróis afro-americanos, como o Falcão (1969), Luke Cage (1972) e Blade (1973) da Marvel Comics ou o Lanterna Verde John Stewart, da DC Comics(1971).', 97, 100, 96, 98, 99, 94, 85),
 ('1001003', 'Homem Aranha', 'O Homem-Aranha (Spider-Man), o alter ego de Peter Parker, é um super-herói que aparece nas revistas em quadrinhos publicadas pela Marvel Comics. Criado pelo escritor/editor Stan Lee e pelo escritor/artista Steve Ditko, o Homem-Aranha apareceu pela primeira vez na Amazing Fantasy #15 (01 de Agosto de 1962), durante a Era de Prata dos Quadrinhos. Lee e Ditko conceberam o personagem como um órfão que foi educado e criado pela sua tia (May Parker) e o seu tio (Ben Parker) em Nova Iorque e que, enquanto adolescente, tem de lidar com as lutas diárias normais da sua idade, em adição às lutas que tem como combatente do crime. Para combater seus inimigos, os criadores deram-lhe superforça e superagilidade, a capacidade de aderir na maioria das superfícies, a habilidade de disparar teias de aranha através de mecanismos montados nos pulsos (inventados por ele próprio e batizados de "lança-teia" — web-shooters) e a reação precognitiva ao perigo chamada "sentido-aranha" (spider-sense). Peter Parker adquiriu seus poderes após ter sido picado por uma aranha radioativa.
-No início dos anos 1960, quando o Homem-Aranha fez sua primeira aparição, os adolescentes nos quadrinhos de super-heróis eram habitualmente relegados para papéis secundários, como coadjuvantes. A série Spider-Man abriu um novo território ao apresentar Peter Parker, um estudante do Queens cujas "auto-obsessões com a rejeição, inadaptações e solidão" os jovens podiam se identificar. Apesar de ter todas as características de um coadjuvante, ao contrário de outros heróis adolescentes como Bucky e Robin, o Homem-Aranha não tinha nenhum super-herói mentor como o Capitão América e o Batman; ele teve que aprender sozinho que "com grande poder vem sempre uma grande responsabilidade" — uma frase incluída no último painel da primeira história do Homem-Aranha, mais tarde atribuída retroativamente ao tio Ben.
-A Marvel fez aparecer o Homem-Aranha em várias séries de revistas em quadrinhos, a primeira e mais longa chamada The Amazing Spider-Man. Ao longo dos anos, Peter Parker evoluiu de um nerd do ensino médio tímido e lerdo para um estudante universitário problemático, mas extrovertido, para um professor casado e, no final dos anos 2000, um fotografo independente (freelancer). Na década de 2010, junta-se aos Vingadores e ao Quarteto Fantástico, duas das equipes de super-heróis mais populares da Marvel. Na história de 2012–2014, Peter Parker morre enquanto sua mente está no corpo do seu inimigo Dr. Octopus; Octopus vive dentro do corpo de Parker, ficando com o papel de Homem-Aranha em The Superior Spider-Man, até regressar ao seu próprio corpo. Separadamente, a Marvel também publicou livros com versões alternativas do herói, incluindo Spider-Man 2099, que conta as aventuras de Miguel OHara, o Homem-Aranha do futuro; Ultimate Spider-Man, que conta as aventuras do adolescente Peter Parker num universo alternativo; e Ultimate Comics Spider-Man, que retrata o jovem Miles Morales, que toma o manto do Homem-Aranha depois deste ter supostamente morrido em Ultimate.
-O Homem-Aranha é um dos super-heróis mais populares e mais bem-sucedidos comercialmente. Como o mascote da Marvel, já apareceu em inúmeras formas de mídia, incluindo em várias séries de televisão animadas e ao vivo, tiras de jornais sindicados, em jogos eletrônicos e numa série de filmes em que foi interpretado por Tobey Maguire (2002–2007), Andrew Garfield (2012–2014), e Tom Holland que tem o papel do personagem no Universo Cinematográfico da Marvel, começando em 2016 com Capitão América: Guerra Civil. Reeve Carney desempenhou o papel de Homem-Aranha no musical da Broadway, Spider-Man: Turn Off the Dark. O Homem-Aranha tem sido bem recebido como personagem de quadrinhos e como super-herói e quase sempre reconhecido como o personagem topo da Marvel Comics. É geralmente classificado como um dos maiores personagens de quadrinhos de todos os tempos e um dos mais populares de toda a ficção.', 98, 86, 90, 96, 99, 87, 90);
+No início dos anos 1960, quando o Homem-Aranha fez sua primeira aparição, os adolescentes nos quadrinhos de super-heróis eram habitualmente relegados para papéis secundários, como coadjuvantes. ', 98, 86, 90, 96, 99, 87, 90);
+
+INSERT INTO respostas (fkPersoResp, fkUsuario, acertos, dtResposta) VALUES
+(1011025, 1, 5, now());
+
 select usuario.nome as nomeUsuario,
         usuario.username as username,
         usuario.senha as senha,
@@ -57,7 +72,15 @@ select usuario.nome as nomeUsuario,
         usuario.email as email,
         personagem.idPersonagem as fkPersonagem,
         personagem.descricao as descricao,
-        personagem.nome as personagem FROM usuario JOIN personagem ON fkPersonagem = idPersonagem;
-    
- 
- select * from usuario join personagem on fkPersonagem = idPersonagem;
+        personagem.nome as personagem,
+        personagem.hp as HP,
+        personagem.resistência as Resistência,
+        personagem.forca as Forca,
+        personagem.inteligencia as Inteligencia,
+        personagem.agilidade as Agilidade,
+        personagem.defesa as Defesa,
+        personagem.armadura as Armadura
+        FROM usuario JOIN personagem ON fkPersonagem = idPersonagem;
+
+SELECT * FROM respostas join usuario on fkUsuario = idUsuario
+	join personagem on fkPersonagem = idPersonagem;

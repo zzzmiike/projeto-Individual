@@ -1,5 +1,3 @@
-const privateKey = "4a11e7353de06c247a0b1fc44057121851474704";
-const publicKey = "eaf3fa204749e1b8d92f1585d6b58007";
 var selecao = "";
 var idPersonagem = 0;
 var personagem = ""
@@ -52,120 +50,12 @@ function alterar() {
 
 }
 
-/*function acharPersonagem() {
-    idPersonagem = 0;
-    const timeStamp = new Date().getTime();
-    const hash = createHash(timeStamp);
-    var selectElement = document.getElementById('selectPersonagem');
-    var selectedValue = selectElement.value;
-    var elementoClicado = event.target;
-    console.log(selectedValue);
-
-    if (selectedValue == "SelecioneUmPersonagem") {
-        console.log('O clique ocorreu em:', elementoClicado);
-        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
-            mesagemCadastro.innerHTML = `Selecione um Personagem!!`
-            selectPersonagem.style.borderColor = "#b03838";
-        } else if (elementoClicado == `<button onclick="acharPersonagem()">Selecionar Personagem</button>`) {
-            person.innerHTML = `Selecione um Personagem!!`
-            selectPersonagem.style.borderColor = "#b03838";
-        }
-    } else if (selectedValue == "capitain-america") {
-        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
-            idPersonagem = 1009220;
-        } else {
-            idPersonagem = 1009220;
-        }
-    } else if (selectedValue == "iron-man") {
-        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
-            idPersonagem = 1009368;
-        } else {
-            idPersonagem = 1009368;
-        }
-    } else if (selectedValue == "thor") {
-        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
-            idPersonagem = 1011025;
-        } else {
-            idPersonagem = 1011025;
-        }
-    } else if (selectedValue == "hulk") {
-        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
-            idPersonagem = 1009351;
-        } else {
-            idPersonagem = 1009351;
-        }
-    } else if (selectedValue == "black_widow") {
-        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
-            idPersonagem = 1009189;
-        } else {
-            idPersonagem = 1009189;
-        }
-    } else if (selectedValue == "black_panther") {
-        if (elementoClicado == `<button onclick="acharPersonagem()" class="btnl">Selecionar Personagem</button>`) {
-            idPersonagem = 1009187;
-        } else {
-            idPersonagem = 1009187;
-        }
-    }
-
-    const urlPerson = `https://gateway.marvel.com/v1/public/characters/${idPersonagem}?&ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`;
-    // const urlStories = `https://gateway.marvel.com:443/v1/public/characters/${idPersonagem}/stories?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`;
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var data = JSON.parse(this.responseText);
-            getPerson(data);
-        }
-    };
-    xhttp.open("GET", urlPerson, true);
-    xhttp.send();
-}*/
-
-/*function getPerson(dados) {
-
-    console.log(dados["data"]["results"]);
-    let coisasPersonagens = dados["data"]["results"];
-    i = 0;
-    person.innerHTML = "";
-    while (i < coisasPersonagens.length) {
-        if (idPersonagem == 1009220) {
-            person.innerHTML += `
-            <span class="tituloPersonagem">Capitão America</span><br>
-            <img class="personagemImg" src="./assets/img/pesons/capitao.png"><br>
-            <span class="infoPerso">
-                <a> Capitão América é um super-herói de histórias em quadrinhos americanos publicado pela Marvel Comics.
-                Criado por Joe Simon e Jack Kirby, o primeiro personagem apareceu em Captain America Comics
-                # 1 da Timely Comics, antecessora da Marvel Comics.</a>
-            </span>
-            `
-        }
-        person.innerHTML += `
-        <div class="card" style="width: 18rem;" id="c${i}">
-            <div class="card-body">
-                <h5 class="card-title" id="n${i}">Card title</h5>
-                <h5 class="card-title" id="cod${i}">Card title</h5>
-                <a href="#" onclick="showHistorys(this)" class="btn btn-primary" data-toggle="modal"
-                    data-target="#exampleModal">Stories</a>
-            </div>
-        </div>
-        `;
-        let primeiro = coisasPersonagens[i];
-        quadrado = document.querySelector("#c" + i + "");
-        quadrado.querySelector("#n" + i + "").textContent = "Nome: " + primeiro["name"];
-        quadrado.querySelector("#cod" + i + "").textContent = "Id: " + primeiro["id"];
-        i++;
-    }
-
-}*/
-
 function cadastrar() {
-
     var emailVar = inp_email.value;
     var nomeVar = inp_nome.value;
     var userVar = inp_user.value;
     var senhaVar = inp_senha.value;
     var confiSenhaVar = inp_confiSenha.value;
-    idPersonagem
 
 
     if (emailVar == "" || nomeVar == "" || userVar == "" || senhaVar == "" || confiSenhaVar == "" || idPersonagem == "") {
@@ -173,7 +63,7 @@ function cadastrar() {
         return false;
     }
 
-    fetch("/dashboard/cadastrar", {
+    fetch("/usuario/cadastrar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -206,7 +96,6 @@ function cadastrar() {
         }
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
     });
 
     return false;
@@ -417,7 +306,7 @@ function validarSessao1() {
         `
     } else if (fkPersonagem == "1001003" && user != null) {
         liperson.innerHTML = `
-        <img id="iconeperso" src="../assets/img/icons/thorr.svg">
+        <img id="iconeperso" src="../assets/img/icons/spiderman.svg">
         `
         containerPerso.innerHTML += `
         <div class="textsPerso">
@@ -427,7 +316,7 @@ function validarSessao1() {
         </span>
         </div>
         <div id="imgPerso">
-        <img src="../assets/img/persons/spider.png" class="imagens">
+        <img src="../assets/img/persons/black-spiderman.svg" class="imagens">
         </div>
         <div class="textsPerso1">
         <span class="textPersonagem">
@@ -527,8 +416,6 @@ function validarSessao() {
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/capitain-america.svg">
         `
-        containerPe
-
     } else if (fkPersonagem == "1009368" && user != null) {
         liperson.innerHTML = `
         <img id="iconeperso" style="background-color:white; border-radius:50%;" src="../assets/img/icons/iron-man.svg">
@@ -548,7 +435,7 @@ function validarSessao() {
         `
     } else if (fkPersonagem == "1001003" && user != null) {
         liperson.innerHTML = `
-        <img id="iconeperso" src="../assets/img/icons/spider.svg">
+        <img id="iconeperso" src="../assets/img/icons/spiderman.svg">
         `
     } else if (fkPersonagem == "1009351" && user != null) {
         liperson.innerHTML = `
@@ -723,23 +610,23 @@ var pantera = [{
 var aranha = [{
     pergunta: 'Qual é o nome verdadeiro do Homem-Aranha?',
     opcoes: ['Peter Parker', 'Miles Morales', 'Harry Osborn'],
-    resposta: 'Peter Parker'
+    resposta: 0
 }, {
     pergunta: 'Quem foi o criador do Homem-Aranha?',
-    opcoes: ['Stan Lee', 'Steve Ditko', 'Bob Kane'],
-    resposta: 'Stan Lee e Steve Ditko'
+    opcoes: [ 'Steve Ditko', 'Stan Lee', 'Bob Kane'],
+    resposta: 1
 }, {
     pergunta: 'Qual é o nome da primeira namorada do Homem-Aranha?',
     opcoes: ['Mary Jane Watson', 'Gwen Stacy', 'Felicia Hardy'],
-    resposta: 'Gwen Stacy'
+    resposta: 0
 }, {
     pergunta: 'Qual é o superpoder principal do Homem-Aranha?',
-    opcoes: ['Sentido-Aranha', 'Superforça', 'Invisibilidade'],
-    resposta: 'Sentido-Aranha'
+    opcoes: [ 'Superforça', 'Invisibilidade', 'Sentido-Aranha'],
+    resposta: 2
 }, {
     pergunta: 'Qual é o nome do tio de Peter Parker que foi morto e inspirou seu senso de responsabilidade?',
-    opcoes: ['Ben Parker', 'Tony Stark', 'Harry Osborn'],
-    resposta: 'Ben Parker'
+    opcoes: [ 'Tony Stark', 'Harry Osborn', 'Ben Parker'],
+    resposta: 2
 }];
 
 var corretas = 0;
@@ -750,81 +637,100 @@ function iniciar() {
         pergunta = ferro[questaoAtual];
         quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
         quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
+        quiz.innerHTML += `<div id="inputs_quiz">`
 
         for (var i = 0; i < pergunta.opcoes.length; i++) {
-            quiz.innerHTML += `
-            <div>
-                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br>
-            </div>
-                `;
+            inputs_quiz.innerHTML += `
+            <span class="inputQuiz">
+                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}</input><br>
+            </span>`;
         }
+        quiz.innerHTML += `</div>`
     } else if (fkPersonagem == "1009220") {
         pergunta = capitao[questaoAtual];
         quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
-        quiz.innerHTML += `<p>${pergunta.pergunta}</p>
-        `;
+        quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
+        quiz.innerHTML += `<div id="inputs_quiz">`
 
         for (var i = 0; i < pergunta.opcoes.length; i++) {
-            quiz.innerHTML += `
-                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br>
-                `;
+            inputs_quiz.innerHTML += `
+            <span class="inputQuiz">
+                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}</input><br>
+            </span>`;
         }
+        quiz.innerHTML += `</div>`
     } else if (fkPersonagem == "1009187") {
         pergunta = pantera[questaoAtual];
         quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
-        quiz.innerHTML += `<p>${pergunta.pergunta}</p>
-        `;
+        quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
+        quiz.innerHTML += `<div id="inputs_quiz">`
+
         for (var i = 0; i < pergunta.opcoes.length; i++) {
-            quiz.innerHTML += `
-            <div class="inputQuiz"><input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br></div>
-                `;
+            inputs_quiz.innerHTML += `
+            <span class="inputQuiz">
+                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}</input><br>
+            </span>`;
         }
+        quiz.innerHTML += `</div>`
     } else if (fkPersonagem == "1011025") {
         pergunta = thor[questaoAtual];
         quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
-        quiz.innerHTML += `<p>${pergunta.pergunta}</p>
-        `;
+        quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
+        quiz.innerHTML += `<div id="inputs_quiz">`
+
         for (var i = 0; i < pergunta.opcoes.length; i++) {
-            quiz.innerHTML += `
-            <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br></div>
-                `;
+            inputs_quiz.innerHTML += `
+            <span class="inputQuiz">
+                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}</input><br>
+            </span>`;
         }
+        quiz.innerHTML += `</div>`
     } else if (fkPersonagem == "1009189") {
         pergunta = viuva[questaoAtual];
         quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
-        quiz.innerHTML += `<p>${pergunta.pergunta}</p>
-        `;
+        quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
+        quiz.innerHTML += `<div id="inputs_quiz">`
+
         for (var i = 0; i < pergunta.opcoes.length; i++) {
-            quiz.innerHTML += `
-            <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br></div>
-                `;
+            inputs_quiz.innerHTML += `
+            <span class="inputQuiz">
+                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}</input><br>
+            </span>`;
         }
+        quiz.innerHTML += `</div>`
     } else if (fkPersonagem == "1001003") {
         pergunta = aranha[questaoAtual];
         quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
-        quiz.innerHTML += `<p>${pergunta.pergunta}</p>
-        `;
+        quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
+        quiz.innerHTML += `<div id="inputs_quiz">`
+
         for (var i = 0; i < pergunta.opcoes.length; i++) {
-            quiz.innerHTML += `
-            <div class="inputQuiz"><input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br></div>
-                `;
+            inputs_quiz.innerHTML += `
+            <span class="inputQuiz">
+                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}</input><br>
+            </span>`;
         }
+        quiz.innerHTML += `</div>`
     } else if (fkPersonagem == "1009351") {
         pergunta = hulk[questaoAtual];
         quiz.innerHTML = `<h3>Pergunta ${questaoAtual + 1}:</h3>`;
-        quiz.innerHTML += `<p>${pergunta.pergunta}</p>
-        `;
+        quiz.innerHTML += `<p>${pergunta.pergunta}</p>`;
+        quiz.innerHTML += `<div id="inputs_quiz">`
+
         for (var i = 0; i < pergunta.opcoes.length; i++) {
-            quiz.innerHTML += `
-            <div class="inputQuiz"><input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}<br></div>
-                `;
+            inputs_quiz.innerHTML += `
+            <span class="inputQuiz">
+                <input type="radio" class="inputQuiz" name="resposta" value="${i}" onchange="verificarRespostas()">${pergunta.opcoes[i]}</input><br>
+            </span>`;
         }
+        quiz.innerHTML += `</div>`
     }
 }
 
 function verificarRespostas() {
     var opcoes = document.getElementsByName('resposta');
     var respostaSelecionada = -1;
+    var person = fkPersonagem;
 
     for (var i = 0; i < opcoes.length; i++) {
         if (opcoes[i].checked) {
@@ -832,101 +738,29 @@ function verificarRespostas() {
             break;
         }
     }
-    if (fkPersonagem == "1009220") {
+    if (fkPersonagem == "1009220") { // Capitão América
         if (respostaSelecionada === capitao[questaoAtual].resposta) {
-            quiz.innerHTML += `
-        <h4>Resposta Correta</h4>
-        `
+            quiz.innerHTML = `
+            <h4>Resposta Correta</h4>
+            `
+            quiz.style.borderColor = "#008000";
+
+
             corretas++
             console.log(corretas)
         } else {
-            alert('Resposta incorreta!');
+            quiz.innerHTML = `<h4>Resposta incorreta!</h4>`
+            quiz.style.borderColor = "#ff0000";
+
         }
 
         questaoAtual++;
 
         if (questaoAtual < capitao.length) {
-            iniciar();
-        } else {
+            setTimeout(() => {
 
-            alert('Quiz concluído!');
-            window.location = "./dashboard.html";
-        }
-    } else if (fkPersonagem == "1009368") {
-        if (respostaSelecionada === ferro[questaoAtual].resposta) {
-            quiz.innerHTML += `
-        <h4>Resposta Correta</h4>
-        `
-            corretas++
-            console.log(corretas)
-        } else {
-            alert('Resposta incorreta!');
-        }
-
-        questaoAtual++;
-
-        if (questaoAtual < ferro.length) {
-            iniciar();
-        } else {
-
-            alert('Quiz concluído!');
-            window.location = "./dashboard.html";
-        }
-    } else if (fkPersonagem == "1009187") {
-        if (respostaSelecionada === pantera[questaoAtual].resposta) {
-            quiz.innerHTML += `
-        <h4>Resposta Correta</h4>
-        `
-            corretas++
-            console.log(corretas)
-        } else {
-            alert('Resposta incorreta!');
-        }
-
-        questaoAtual++;
-
-        if (questaoAtual < pantera.length) {
-            iniciar();
-        } else {
-
-            alert('Quiz concluído!');
-            window.location = "./dashboard.html";
-        }
-    } else if (fkPersonagem == "1009189") {
-        if (respostaSelecionada === viuva[questaoAtual].resposta) {
-            quiz.innerHTML += `
-        <h4>Resposta Correta</h4>
-        `
-            corretas++
-            console.log(corretas)
-        } else {
-            alert('Resposta incorreta!');
-        }
-
-        questaoAtual++;
-
-        if (questaoAtual < viuva.length) {
-            iniciar();
-        } else {
-
-            alert('Quiz concluído!');
-            window.location = "./dashboard.html";
-        }
-    } else if (fkPersonagem == "1011025") {
-        if (respostaSelecionada === thor[questaoAtual].resposta) {
-            quiz.innerHTML += `
-        <h4>Resposta Correta</h4>
-        `
-            corretas++
-            console.log(corretas)
-        } else {
-            alert('Resposta incorreta!');
-        }
-
-        questaoAtual++;
-
-        if (questaoAtual < capitao.length) {
-            iniciar();
+                iniciar();
+            }, "2000")
         } else {
             fetch("/dashboard/cadastrar", {
                 method: "POST",
@@ -934,10 +768,9 @@ function verificarRespostas() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
                     acertosServer: corretas,
-                    idUsuarioServer: idUsuario
+                    idUsuarioServer: idUsuario,
+                    idPersonagemServer: person
                 })
             }).then(function (resposta) {
         
@@ -957,48 +790,338 @@ function verificarRespostas() {
                 console.log(`#ERRO: ${resposta}`);
             });
         
-            alert('Quiz concluído!');
+            quiz.innerHTML = `Quiz concluído!`
             return false;
         }
-    } else if (fkPersonagem == "1001003") {
-        if (respostaSelecionada === aranha[questaoAtual].resposta) {
-            quiz.innerHTML += `
-        <h4>Resposta Correta</h4>
-        `
+    } else if (fkPersonagem == "1009368") { // Homem de Ferro
+        if (respostaSelecionada === ferro[questaoAtual].resposta) {
+            quiz.innerHTML = `
+            <h4>Resposta Correta</h4>
+            `
+            quiz.style.borderColor = "#008000";
+
+
             corretas++
             console.log(corretas)
         } else {
-            alert('Resposta incorreta!');
+            quiz.innerHTML = `<h4>Resposta incorreta!</h4>`
+            quiz.style.borderColor = "#ff0000";
+
+        }
+
+        questaoAtual++;
+
+        if (questaoAtual < ferro.length) {
+            setTimeout(() => {
+
+                iniciar();
+            }, "2000")
+        } else {
+            fetch("/dashboard/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    acertosServer: corretas,
+                    idUsuarioServer: idUsuario,
+                    idPersonagemServer: person
+                })
+            }).then(function (resposta) {
+        
+                console.log("resposta: ", resposta);
+        
+                if (resposta.ok) {
+        
+                    setTimeout(() => {
+                        window.location = "./dashboard.html";
+                    }, "1500")
+        
+                    limparFormulario();
+                } else {
+                    throw ("Houve um erro ao tentar guardar as respostas!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        
+            quiz.innerHTML = `Quiz concluído!`
+            return false;
+        }
+    } else if (fkPersonagem == "1009187") { // Pantera Negra
+        if (respostaSelecionada === pantera[questaoAtual].resposta) {
+            quiz.innerHTML = `
+            <h4>Resposta Correta</h4>
+            `
+            quiz.style.borderColor = "#008000";
+
+
+            corretas++
+            console.log(corretas)
+        } else {
+            quiz.innerHTML = `<h4>Resposta incorreta!</h4>`
+            quiz.style.borderColor = "#ff0000";
+
+        }
+
+        questaoAtual++;
+
+        if (questaoAtual < pantera.length) {
+            setTimeout(() => {
+
+                iniciar();
+            }, "2000")
+        } else {
+            fetch("/dashboard/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    acertosServer: corretas,
+                    idUsuarioServer: idUsuario,
+                    idPersonagemServer: person
+                })
+            }).then(function (resposta) {
+        
+                console.log("resposta: ", resposta);
+        
+                if (resposta.ok) {
+        
+                    setTimeout(() => {
+                        window.location = "./dashboard.html";
+                    }, "1500")
+        
+                    limparFormulario();
+                } else {
+                    throw ("Houve um erro ao tentar guardar as respostas!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        
+            quiz.innerHTML = `Quiz concluído!`
+            return false;
+        }
+    } else if (fkPersonagem == "1009189") { // Viúva Negra
+        if (respostaSelecionada === viuva[questaoAtual].resposta) {
+            quiz.innerHTML = `
+            <h4>Resposta Correta</h4>
+            `
+            quiz.style.borderColor = "#008000";
+
+
+            corretas++
+            console.log(corretas)
+        } else {
+            quiz.innerHTML = `<h4>Resposta incorreta!</h4>`
+            quiz.style.borderColor = "#ff0000";
+
+        }
+
+        questaoAtual++;
+
+        if (questaoAtual < viuva.length) {
+            setTimeout(() => {
+
+                iniciar();
+            }, "2000")
+        } else {
+            fetch("/dashboard/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    acertosServer: corretas,
+                    idUsuarioServer: idUsuario,
+                    idPersonagemServer: person
+                })
+            }).then(function (resposta) {
+        
+                console.log("resposta: ", resposta);
+        
+                if (resposta.ok) {
+        
+                    setTimeout(() => {
+                        window.location = "./dashboard.html";
+                    }, "1500")
+        
+                    limparFormulario();
+                } else {
+                    throw ("Houve um erro ao tentar guardar as respostas!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        
+            quiz.innerHTML = `Quiz concluído!`
+            return false;
+        }
+    } else if (fkPersonagem == "1011025") { // Thor
+        if (respostaSelecionada === thor[questaoAtual].resposta) {
+            quiz.innerHTML = `
+            <h4>Resposta Correta</h4>
+            `
+            quiz.style.borderColor = "#008000";
+
+
+            corretas++
+            console.log(corretas)
+        } else {
+            quiz.innerHTML = `<h4>Resposta incorreta!</h4>`
+            quiz.style.borderColor = "#ff0000";
+
+        }
+
+        questaoAtual++;
+
+        if (questaoAtual < thor.length) {
+            setTimeout(() => {
+
+                iniciar();
+            }, "2000")
+        } else {
+            fetch("/dashboard/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    acertosServer: corretas,
+                    idUsuarioServer: idUsuario,
+                    idPersonagemServer: person
+                })
+            }).then(function (resposta) {
+        
+                console.log("resposta: ", resposta);
+        
+                if (resposta.ok) {
+        
+                    setTimeout(() => {
+                        window.location = "./dashboard.html";
+                    }, "1500")
+        
+                    limparFormulario();
+                } else {
+                    throw ("Houve um erro ao tentar guardar as respostas!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        
+            quiz.innerHTML = `Quiz concluído!`
+            return false;
+        }
+    } else if (fkPersonagem == "1001003") { // Homem-Aranha
+        if (respostaSelecionada === aranha[questaoAtual].resposta) {
+            quiz.innerHTML = `
+            <h4>Resposta Correta</h4>
+            `
+            quiz.style.borderColor = "#008000";
+
+
+            corretas++
+            console.log(corretas)
+        } else {
+            quiz.innerHTML = `<h4>Resposta incorreta!</h4>`
+            quiz.style.borderColor = "#ff0000";
+
         }
 
         questaoAtual++;
 
         if (questaoAtual < aranha.length) {
-            iniciar();
-        } else {
+            setTimeout(() => {
 
-            alert('Quiz concluído!');
-            window.location = "./dashboard.html";
+                iniciar();
+            }, "2000")
+        } else {
+            fetch("/dashboard/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    acertosServer: corretas,
+                    idUsuarioServer: idUsuario,
+                    idPersonagemServer: person
+                })
+            }).then(function (resposta) {
+        
+                console.log("resposta: ", resposta);
+        
+                if (resposta.ok) {
+        
+                    setTimeout(() => {
+                        window.location = "./dashboard.html";
+                    }, "1500")
+        
+                    limparFormulario();
+                } else {
+                    throw ("Houve um erro ao tentar guardar as respostas!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        
+            quiz.innerHTML = `Quiz concluído!`
+            return false;
         }
-    } else if (fkPersonagem == "1009351") {
+    } else if (fkPersonagem == "1009351") { // Hulk
         if (respostaSelecionada === hulk[questaoAtual].resposta) {
-            quiz.innerHTML += `
-        <h4>Resposta Correta</h4>
-        `
+            quiz.innerHTML = `
+            <h4>Resposta Correta</h4>
+            `
+            quiz.style.borderColor = "#008000";
+
+
             corretas++
             console.log(corretas)
         } else {
-            alert('Resposta incorreta!');
+            quiz.innerHTML = `<h4>Resposta incorreta!</h4>`
+            quiz.style.borderColor = "#ff0000";
+
         }
 
         questaoAtual++;
 
         if (questaoAtual < hulk.length) {
-            iniciar();
-        } else {
+            setTimeout(() => {
 
-            alert('Quiz concluído!');
-            window.location = "./dashboard.html";
+                iniciar();
+            }, "2000")
+        } else {
+            fetch("/dashboard/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    acertosServer: corretas,
+                    idUsuarioServer: idUsuario,
+                    idPersonagemServer: person
+                })
+            }).then(function (resposta) {
+        
+                console.log("resposta: ", resposta);
+        
+                if (resposta.ok) {
+        
+                    setTimeout(() => {
+                        window.location = "./dashboard.html";
+                    }, "1500")
+        
+                    limparFormulario();
+                } else {
+                    throw ("Houve um erro ao tentar guardar as respostas!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        
+            quiz.innerHTML = `Quiz concluído!`
+            return false;
         }
     }
 }
