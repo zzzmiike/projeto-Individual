@@ -277,10 +277,11 @@ function validarSessao1() {
         <div id="imgPerso">
         <img src="../assets/img/persons/viuva.png" class="imagens">
         </div>
-        <div class="textsPerso">
+        <div class="textsPerso1">
         <span class="textPersonagem">
-        
         </span>
+            <canvas id="radar_chart">
+            </canvas>
         </div>
         `
     } else if (fkPersonagem == "1011025" && user != null) {
@@ -327,7 +328,7 @@ function validarSessao1() {
         `
     } else if (fkPersonagem == "1009351" && user != null) {
         liperson.innerHTML = `
-        <img id="iconeperso" src="../assets/img/icons/thorr.svg">
+        <img id="iconeperso" src="../assets/img/icons/hulk.svg">
         `
         containerPerso.innerHTML += `
         <div class="textsPerso">
@@ -582,7 +583,7 @@ var viuva = [{
 
 var pantera = [{
     pergunta: 'Qual é o nome verdadeiro do Pantera Negra?',
-    opcoes: ['TChalla', 'Erik Killmonger', 'NJadaka'],
+    opcoes: [`T'Challa`, 'Erik Killmonger', 'NJadaka'],
     resposta: 0
 }, {
     pergunta: 'Qual é o nome da nação governada pelo Pantera Negra?',
