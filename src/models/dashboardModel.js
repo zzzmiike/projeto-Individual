@@ -13,6 +13,21 @@ function cadastrar(acertos, idUsuario, idPersonagem) {
     return database.executar(instrucao);
 }
 
+function listar(idUsuario, idPersonagem) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+    SELECT respostas.acertos,
+            respostas.fkUsuario as fkUsuario,
+            respostas.dtResposta AS dtHora
+            FROM respostas JOIN usuario ON fkUsuario = idUsuario
+            JOIN personagem ON fkPersonagem = idPersonagem
+            WHERE fkUsuario = ${idPersonagem} AND fkPersonagem = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
-    cadastrar
+    cadastrar,
+    listar
 };

@@ -16,6 +16,8 @@
     border-radius: 50px;
 }
 
+
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -28,6 +30,7 @@ body {
     padding: 0;
     margin: 0;
     background: url(../assets/img/backgrounds/marvelBackground-1.svg);
+
 }
 
 #navbar {
@@ -111,9 +114,10 @@ body {
 }
 
 /*Landing Page*/
-.main-index {
+.main-objetivo, .main-sobre {
     display: flex;
-    position: relative;
+    background-color: #E23636;
+    position: absolute;
 }
 
 .index {
@@ -230,6 +234,14 @@ body {
     flex-direction: column;
     gap: 10px;
     transition: .5s;
+}
+
+.text {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    align-items: start;
+    width: 100vw;
 }
 
 label {

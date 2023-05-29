@@ -55,9 +55,6 @@ O Pantera Negra é o primeiro super-herói de ascendência africana criado por u
 ('1001003', 'Homem Aranha', 'O Homem-Aranha (Spider-Man), o alter ego de Peter Parker, é um super-herói que aparece nas revistas em quadrinhos publicadas pela Marvel Comics. Criado pelo escritor/editor Stan Lee e pelo escritor/artista Steve Ditko, o Homem-Aranha apareceu pela primeira vez na Amazing Fantasy #15 (01 de Agosto de 1962), durante a Era de Prata dos Quadrinhos. Lee e Ditko conceberam o personagem como um órfão que foi educado e criado pela sua tia (May Parker) e o seu tio (Ben Parker) em Nova Iorque e que, enquanto adolescente, tem de lidar com as lutas diárias normais da sua idade, em adição às lutas que tem como combatente do crime. Para combater seus inimigos, os criadores deram-lhe superforça e superagilidade, a capacidade de aderir na maioria das superfícies, a habilidade de disparar teias de aranha através de mecanismos montados nos pulsos (inventados por ele próprio e batizados de "lança-teia" — web-shooters) e a reação precognitiva ao perigo chamada "sentido-aranha" (spider-sense). Peter Parker adquiriu seus poderes após ter sido picado por uma aranha radioativa.
 No início dos anos 1960, quando o Homem-Aranha fez sua primeira aparição, os adolescentes nos quadrinhos de super-heróis eram habitualmente relegados para papéis secundários, como coadjuvantes. ', 98, 86, 90, 96, 99, 87, 90);
 
-INSERT INTO respostas (fkPersoResp, fkUsuario, acertos, dtResposta) VALUES
-(1011025, 1, 5, now());
-
 select usuario.nome as nomeUsuario,
         usuario.username as username,
         usuario.senha as senha,

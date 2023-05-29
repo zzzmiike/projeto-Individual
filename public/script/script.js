@@ -150,11 +150,8 @@ function entrar() {
                 sessionStorage.AGILIDADE_PERSONAGEM = json.agilidade;
                 sessionStorage.DEFESA_PERSONAGEM = json.defesa;
                 sessionStorage.ARMADURA_PERSONAGEM = json.armadura;
-
-
-
-
                 setTimeout(function () {
+
                     window.location = "./afterlogin/personagem.html";
                 }, 2500); // apenas para exibir o loading
 
@@ -198,7 +195,7 @@ function validarSessao1() {
 
     var b_usuario = document.getElementById("b_usuario");
 
-    if (fkPersonagem == "1009220" && user != null) {
+    if (fkPersonagem == "1009220" && user != null) { // Capitão América
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/capitain-america.svg">
         `
@@ -220,7 +217,7 @@ function validarSessao1() {
         </div>
         `
 
-    } else if (fkPersonagem == "1009368" && user != null) {
+    } else if (fkPersonagem == "1009368" && user != null) { // Homem de Ferro
         liperson.innerHTML = `
         <img id="iconeperso" style="background-color:white; border-radius:50%;" src="../assets/img/icons/iron-man.svg">
         `
@@ -241,7 +238,7 @@ function validarSessao1() {
             </canvas>
         </div>
         `
-    } else if (fkPersonagem == "1009187" && user != null) {
+    } else if (fkPersonagem == "1009187" && user != null) { // Pantera Negra
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/black-panther.svg">
         `
@@ -263,7 +260,7 @@ function validarSessao1() {
             </canvas>
         </div>
         `
-    } else if (fkPersonagem == "1009189" && user != null) {
+    } else if (fkPersonagem == "1009189" && user != null) { // Viúva Negra
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/black-widow.svg">
         `
@@ -284,7 +281,7 @@ function validarSessao1() {
             </canvas>
         </div>
         `
-    } else if (fkPersonagem == "1011025" && user != null) {
+    } else if (fkPersonagem == "1011025" && user != null) { // Thor
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/thorr.svg">
         `
@@ -305,7 +302,7 @@ function validarSessao1() {
             </canvas>
         </div>
         `
-    } else if (fkPersonagem == "1001003" && user != null) {
+    } else if (fkPersonagem == "1001003" && user != null) { // Homem Aranha
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/spiderman.svg">
         `
@@ -326,7 +323,7 @@ function validarSessao1() {
             </canvas>
         </div>
         `
-    } else if (fkPersonagem == "1009351" && user != null) {
+    } else if (fkPersonagem == "1009351" && user != null) { // Hulk
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/hulk.svg">
         `
@@ -378,7 +375,7 @@ function validarSessao1() {
         options: {
             scales: {
                 r: {
-                    grid:{
+                    grid: {
                         display: true,
                         color: 'rgba(255, 255, 255, 1)',
                     },
@@ -405,7 +402,6 @@ function validarSessao1() {
 }
 
 function validarSessao() {
-    // aguardar();
     var user = sessionStorage.USERNAME_USUARIO;
     fkPersonagem = sessionStorage.FK_USUARIO;
     personagem = sessionStorage.PERSONAGEM_PERSONAGEM;
@@ -413,43 +409,38 @@ function validarSessao() {
     var b_usuario = document.getElementById("b_usuario");
     var nomePersonagem = document.getElementById("nome_perso");
 
-    if (fkPersonagem == "1009220" && user != null) {
+    if (fkPersonagem == "1009220" && user != null) { // Capitão America
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/capitain-america.svg">
-        `
-    } else if (fkPersonagem == "1009368" && user != null) {
+        `;
+    } else if (fkPersonagem == "1009368" && user != null) { // Homem de Ferro
         liperson.innerHTML = `
         <img id="iconeperso" style="background-color:white; border-radius:50%;" src="../assets/img/icons/iron-man.svg">
-        `
-    } else if (fkPersonagem == "1009187" && user != null) {
+        `;
+    } else if (fkPersonagem == "1009187" && user != null) { // Pantera Negra
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/black-panther.svg">
         `
-
-    } else if (fkPersonagem == "1009189" && user != null) {
+    } else if (fkPersonagem == "1009189" && user != null) { // Viúva Negra
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/black-widow.svg">
         `
-    } else if (fkPersonagem == "1011025" && user != null) {
+    } else if (fkPersonagem == "1011025" && user != null) { // Thor
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/thorr.svg">
         `
-    } else if (fkPersonagem == "1001003" && user != null) {
+    } else if (fkPersonagem == "1001003" && user != null) { // Homem Aranha
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/spiderman.svg">
         `
-    } else if (fkPersonagem == "1009351" && user != null) {
+    } else if (fkPersonagem == "1009351" && user != null) { // Hulk
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/hulk.svg">
         `
     }
 
     if (user != null) {
-        // window.alert(`Seja bem-vindo, ${nome}!`);
         b_usuario.innerHTML = user;
-        nomePersonagem.innerHTML = personagem;
-
-        // finalizarAguardar();
     } else {
         window.location = "../login.html";
     }
@@ -614,7 +605,7 @@ var aranha = [{
     resposta: 0
 }, {
     pergunta: 'Quem foi o criador do Homem-Aranha?',
-    opcoes: [ 'Steve Ditko', 'Stan Lee', 'Bob Kane'],
+    opcoes: ['Steve Ditko', 'Stan Lee', 'Bob Kane'],
     resposta: 1
 }, {
     pergunta: 'Qual é o nome da primeira namorada do Homem-Aranha?',
@@ -622,16 +613,17 @@ var aranha = [{
     resposta: 0
 }, {
     pergunta: 'Qual é o superpoder principal do Homem-Aranha?',
-    opcoes: [ 'Superforça', 'Invisibilidade', 'Sentido-Aranha'],
+    opcoes: ['Superforça', 'Invisibilidade', 'Sentido-Aranha'],
     resposta: 2
 }, {
     pergunta: 'Qual é o nome do tio de Peter Parker que foi morto e inspirou seu senso de responsabilidade?',
-    opcoes: [ 'Tony Stark', 'Harry Osborn', 'Ben Parker'],
+    opcoes: ['Tony Stark', 'Harry Osborn', 'Ben Parker'],
     resposta: 2
 }];
 
 var corretas = 0;
 var questaoAtual = 0;
+var errado = 0;
 
 function iniciar() {
     if (fkPersonagem == "1009368") {
@@ -774,15 +766,15 @@ function verificarRespostas() {
                     idPersonagemServer: person
                 })
             }).then(function (resposta) {
-        
+
                 console.log("resposta: ", resposta);
-        
+
                 if (resposta.ok) {
-        
+
                     setTimeout(() => {
                         window.location = "./dashboard.html";
-                    }, "1500")
-        
+                    }, "4000")
+
                     limparFormulario();
                 } else {
                     throw ("Houve um erro ao tentar guardar as respostas!");
@@ -790,7 +782,7 @@ function verificarRespostas() {
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-        
+
             quiz.innerHTML = `Quiz concluído!`
             return false;
         }
@@ -829,15 +821,15 @@ function verificarRespostas() {
                     idPersonagemServer: person
                 })
             }).then(function (resposta) {
-        
+
                 console.log("resposta: ", resposta);
-        
+
                 if (resposta.ok) {
-        
+
                     setTimeout(() => {
                         window.location = "./dashboard.html";
-                    }, "1500")
-        
+                    }, "4000")
+
                     limparFormulario();
                 } else {
                     throw ("Houve um erro ao tentar guardar as respostas!");
@@ -845,7 +837,7 @@ function verificarRespostas() {
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-        
+
             quiz.innerHTML = `Quiz concluído!`
             return false;
         }
@@ -884,15 +876,15 @@ function verificarRespostas() {
                     idPersonagemServer: person
                 })
             }).then(function (resposta) {
-        
+
                 console.log("resposta: ", resposta);
-        
+
                 if (resposta.ok) {
-        
+
                     setTimeout(() => {
                         window.location = "./dashboard.html";
-                    }, "1500")
-        
+                    }, "4000")
+
                     limparFormulario();
                 } else {
                     throw ("Houve um erro ao tentar guardar as respostas!");
@@ -900,7 +892,7 @@ function verificarRespostas() {
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-        
+
             quiz.innerHTML = `Quiz concluído!`
             return false;
         }
@@ -917,7 +909,8 @@ function verificarRespostas() {
         } else {
             quiz.innerHTML = `<h4>Resposta incorreta!</h4>`
             quiz.style.borderColor = "#ff0000";
-
+            errado++
+            console.log(errado)
         }
 
         questaoAtual++;
@@ -939,15 +932,15 @@ function verificarRespostas() {
                     idPersonagemServer: person
                 })
             }).then(function (resposta) {
-        
+
                 console.log("resposta: ", resposta);
-        
+
                 if (resposta.ok) {
-        
+
                     setTimeout(() => {
                         window.location = "./dashboard.html";
-                    }, "1500")
-        
+                    }, "4000")
+
                     limparFormulario();
                 } else {
                     throw ("Houve um erro ao tentar guardar as respostas!");
@@ -955,7 +948,7 @@ function verificarRespostas() {
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-        
+
             quiz.innerHTML = `Quiz concluído!`
             return false;
         }
@@ -994,15 +987,15 @@ function verificarRespostas() {
                     idPersonagemServer: person
                 })
             }).then(function (resposta) {
-        
+
                 console.log("resposta: ", resposta);
-        
+
                 if (resposta.ok) {
-        
+
                     setTimeout(() => {
                         window.location = "./dashboard.html";
-                    }, "1500")
-        
+                    }, "4000")
+
                     limparFormulario();
                 } else {
                     throw ("Houve um erro ao tentar guardar as respostas!");
@@ -1010,7 +1003,7 @@ function verificarRespostas() {
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-        
+
             quiz.innerHTML = `Quiz concluído!`
             return false;
         }
@@ -1037,7 +1030,9 @@ function verificarRespostas() {
 
                 iniciar();
             }, "2000")
-        } else {
+        } else {setTimeout(() => {
+
+    
             fetch("/dashboard/cadastrar", {
                 method: "POST",
                 headers: {
@@ -1049,15 +1044,15 @@ function verificarRespostas() {
                     idPersonagemServer: person
                 })
             }).then(function (resposta) {
-        
+
                 console.log("resposta: ", resposta);
-        
+
                 if (resposta.ok) {
-        
+
                     setTimeout(() => {
                         window.location = "./dashboard.html";
-                    }, "1500")
-        
+                    }, "4000")
+
                     limparFormulario();
                 } else {
                     throw ("Houve um erro ao tentar guardar as respostas!");
@@ -1065,9 +1060,11 @@ function verificarRespostas() {
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-        
+
             quiz.innerHTML = `Quiz concluído!`
             return false;
+        }, "4000")
+
         }
     } else if (fkPersonagem == "1009351") { // Hulk
         if (respostaSelecionada === hulk[questaoAtual].resposta) {
@@ -1104,15 +1101,15 @@ function verificarRespostas() {
                     idPersonagemServer: person
                 })
             }).then(function (resposta) {
-        
+
                 console.log("resposta: ", resposta);
-        
+
                 if (resposta.ok) {
-        
+
                     setTimeout(() => {
                         window.location = "./dashboard.html";
-                    }, "1500")
-        
+                    }, "3000")
+
                     limparFormulario();
                 } else {
                     throw ("Houve um erro ao tentar guardar as respostas!");
@@ -1120,9 +1117,73 @@ function verificarRespostas() {
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-        
+
             quiz.innerHTML = `Quiz concluído!`
             return false;
         }
     }
+}
+
+function dadosDash() {
+    var fkPersonagem = sessionStorage.FK_USUARIO;
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    fetch("/dashboard/listar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            fkPersonagemServer: fkPersonagem,
+            idUsuarioServer: idUsuario
+        })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                const labels = [];
+                const data = [];
+
+                json.forEach(element => {
+                    labels.push(element.dtHora);
+                    data.push(element.acertos);
+                });
+
+                const line = document.getElementById('line_chart');
+                new Chart(line, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: sessionStorage.PERSONAGEM_PERSONAGEM,
+                            data: data,
+                            fill: true,
+                            backgroundColor: 'rgba(226, 54, 54, 0.5)',
+                            borderColor: 'rgb(247, 143, 63)',
+                            borderWidth: 4,
+                            pointBackgroundColor: 'rgb(255, 255, 255)',
+                            pointBorderColor: '#fff',
+                            tension: 0.5
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                suggestedMin: 0,
+                                suggestedMax: 10
+                            }
+                        }
+                    }
+                });
+            });
+        } else {
+            console.log("Houve um erro ao tentar puxar os acertos do banco!");
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizarAguardar(texto);
+            });
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+    });
+    return false;
 }

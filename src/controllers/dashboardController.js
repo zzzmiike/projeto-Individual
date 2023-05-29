@@ -33,7 +33,10 @@ function cadastrar(req, res) {
 }
 
 function listar(req, res) {
-    usuarioModel.listar()
+    var idPersonagem = req.body.fkPersonagemServer;
+    var idUsuario = req.body.idUsuarioServer;
+
+    dashboardModel.listar(idPersonagem, idUsuario)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);

@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="../style/style.css">
     <script src="../script/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Quiz Sobre Personagem</title>
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(), dadosDash()">
     <header>
         <nav id="navbar">
             <div id="logo">
@@ -30,3 +31,9 @@
             </ul>
         </nav>
     </header>
+    <div id="containerPerso">
+        <canvas id="line_chart"></canvas>
+    </div>
+</body>
+
+</html>

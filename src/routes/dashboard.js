@@ -11,7 +11,7 @@ router.post("/cadastrar", function (req, res) {
     dashboardController.cadastrar(req, res);
 })
 
-router.get("/listar", function (req, res) {
+router.post("/listar", function (req, res) {
     dashboardController.listar(req, res);
 });
 
