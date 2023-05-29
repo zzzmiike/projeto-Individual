@@ -311,12 +311,12 @@ label {
 /*Inicial de Dash, Quiz e Resumo de personagem*/
 #containerPerso{
     width: 100vw;
-    height: 100vh;
     height: auto;
     position: relative;
     display: flex;
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter:blur(4px);
+    padding: 2% 0 0 0;
 }
 
 .tituloPersonagem {
@@ -352,7 +352,7 @@ label {
 }
 
 .imagens{
-    width: 18vw;
+    width: 17vw;
 }
 
 #inputs_quiz {
