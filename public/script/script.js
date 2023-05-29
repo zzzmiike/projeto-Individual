@@ -749,7 +749,7 @@ function verificarRespostas() {
 
         questaoAtual++;
 
-        if (questaoAtual < capitao.length) {
+        if (questaoAtual < thor.length) {
             setTimeout(() => {
 
                 iniciar();
@@ -804,7 +804,7 @@ function verificarRespostas() {
 
         questaoAtual++;
 
-        if (questaoAtual < ferro.length) {
+        if (questaoAtual < thor.length) {
             setTimeout(() => {
 
                 iniciar();
@@ -859,7 +859,7 @@ function verificarRespostas() {
 
         questaoAtual++;
 
-        if (questaoAtual < pantera.length) {
+        if (questaoAtual < thor.length) {
             setTimeout(() => {
 
                 iniciar();
@@ -909,13 +909,12 @@ function verificarRespostas() {
         } else {
             quiz.innerHTML = `<h4>Resposta incorreta!</h4>`
             quiz.style.borderColor = "#ff0000";
-            errado++
-            console.log(errado)
+
         }
 
         questaoAtual++;
 
-        if (questaoAtual < viuva.length) {
+        if (questaoAtual < thor.length) {
             setTimeout(() => {
 
                 iniciar();
@@ -1025,14 +1024,12 @@ function verificarRespostas() {
 
         questaoAtual++;
 
-        if (questaoAtual < aranha.length) {
+        if (questaoAtual < thor.length) {
             setTimeout(() => {
 
                 iniciar();
             }, "2000")
-        } else {setTimeout(() => {
-
-    
+        } else {
             fetch("/dashboard/cadastrar", {
                 method: "POST",
                 headers: {
@@ -1063,8 +1060,6 @@ function verificarRespostas() {
 
             quiz.innerHTML = `Quiz concluído!`
             return false;
-        }, "4000")
-
         }
     } else if (fkPersonagem == "1009351") { // Hulk
         if (respostaSelecionada === hulk[questaoAtual].resposta) {
@@ -1084,7 +1079,7 @@ function verificarRespostas() {
 
         questaoAtual++;
 
-        if (questaoAtual < hulk.length) {
+        if (questaoAtual < thor.length) {
             setTimeout(() => {
 
                 iniciar();
@@ -1108,7 +1103,7 @@ function verificarRespostas() {
 
                     setTimeout(() => {
                         window.location = "./dashboard.html";
-                    }, "3000")
+                    }, "4000")
 
                     limparFormulario();
                 } else {

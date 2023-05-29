@@ -311,7 +311,7 @@ label {
 /*Inicial de Dash, Quiz e Resumo de personagem*/
 #containerPerso{
     width: 100vw;
-    height: auto;
+    height: 90vh;
     position: relative;
     display: flex;
     background-color: rgba(0, 0, 0, 0.2);
