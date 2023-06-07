@@ -58,9 +58,47 @@ function cadastrar() {
     var confiSenhaVar = inp_confiSenha.value;
 
 
-    if (emailVar == "" || nomeVar == "" || userVar == "" || senhaVar == "" || confiSenhaVar == "" || idPersonagem == "") {
-
+    if (emailVar == "" && nomeVar == "" && userVar == "" && senhaVar == "" && confiSenhaVar == "" && idPersonagem == "") {
+        mensagem_erro.innerHTML = "Preencha todos os Campos";
+        inp_email.style.backgroundColor = "#b03838";
+        inp_nome.style.backgroundColor = "#b03838";
+        inp_user.style.backgroundColor = "#b03838";
+        inp_senha.style.backgroundColor = "#b03838";
+        inp_confiSenha.style.backgroundColor = "#b03838";
         return false;
+    } else if (emailVar == "" || nomeVar == "" || userVar == "" || senhaVar == "" || confiSenhaVar == "" || idPersonagem == ""){
+        if (emailVar == "") {
+            mensagem_erro.innerHTML = "Insira um email válido";
+            inp_email.style.borderColor = "#b03838";
+            inp_email.style.backgroundColor = "#b03838";
+        } else if (emailVar != "") {
+            inp_email.style.borderColor = "#008000";
+            inp_email.style.backgroundColor = "#00FF00";
+            
+        }
+        if (nomeVar == ""){
+            mensagem_erro.innerHTML = "Insira um nome válido";
+            inp_nome.style.borderColor = "#b03838";
+        }
+        if (userVar == ""){
+            mensagem_erro.innerHTML = "Insira um user válido";
+            inp_user.style.borderColor = "#b03838";
+        }
+        if (senhaVar == ""){
+            mensagem_erro.innerHTML = "Insira uma senha válida";
+            inp_senha.style.borderColor = "#b03838";
+        }
+        if (confiSenhaVar == ""){
+            mensagem_erro.innerHTML += "Insira uma senha válida";
+            inp_confiSenha.style.borderColor = "#b03838";
+        }
+    }
+    if (senhaVar == confiSenhaVar){
+        if (condition) {
+            
+        } else {
+            
+        }
     }
 
     fetch("/usuario/cadastrar", {
