@@ -57,86 +57,142 @@ function cadastrar() {
     var senhaVar = inp_senha.value;
     var confiSenhaVar = inp_confiSenha.value;
 
-
     if (emailVar == "" && nomeVar == "" && userVar == "" && senhaVar == "" && confiSenhaVar == "" && idPersonagem == "") {
         mensagem_erro.innerHTML = "Preencha todos os Campos";
-        inp_email.style.backgroundColor = "#b03838";
-        inp_nome.style.backgroundColor = "#b03838";
-        inp_user.style.backgroundColor = "#b03838";
-        inp_senha.style.backgroundColor = "#b03838";
-        inp_confiSenha.style.backgroundColor = "#b03838";
+        inp_email.style.borderColor = "#b03838";
+        inp_nome.style.borderColor = "#b03838";
+        inp_user.style.borderColor = "#b03838";
+        inp_senha.style.borderColor = "#b03838";
+        inp_confiSenha.style.borderColor = "#b03838";
+        inp_email.classList.add("treme");
+        inp_nome.classList.add("treme");
+        inp_user.classList.add("treme");
+        inp_senha.classList.add("treme");
+        inp_confiSenha.classList.add("treme");
+
+        setTimeout(() => {
+            inp_email.classList.remove("treme");
+            inp_nome.classList.remove("treme");
+            inp_user.classList.remove("treme");
+            inp_senha.classList.remove("treme");
+            inp_confiSenha.classList.remove("treme");
+            mensagem_erro.innerHTML = "";
+        }, 5000);
         return false;
-    } else if (emailVar == "" || nomeVar == "" || userVar == "" || senhaVar == "" || confiSenhaVar == "" || idPersonagem == ""){
-        if (emailVar == "") {
-            mensagem_erro.innerHTML = "Insira um email válido";
-            inp_email.style.borderColor = "#b03838";
-            inp_email.style.backgroundColor = "#b03838";
-        } else if (emailVar != "") {
-            inp_email.style.borderColor = "#008000";
-            inp_email.style.backgroundColor = "#00FF00";
-            
-        }
-        if (nomeVar == ""){
-            mensagem_erro.innerHTML = "Insira um nome válido";
-            inp_nome.style.borderColor = "#b03838";
-        }
-        if (userVar == ""){
-            mensagem_erro.innerHTML = "Insira um user válido";
-            inp_user.style.borderColor = "#b03838";
-        }
-        if (senhaVar == ""){
-            mensagem_erro.innerHTML = "Insira uma senha válida";
-            inp_senha.style.borderColor = "#b03838";
-        }
-        if (confiSenhaVar == ""){
-            mensagem_erro.innerHTML += "Insira uma senha válida";
-            inp_confiSenha.style.borderColor = "#b03838";
-        }
+    } else if (emailVar == "") {
+        mensagem_erro.innerHTML = "Insira um email válido";
+        //var input_email = document.getElementById("inp_email");
+        inp_email.classList.add("treme");
+        inp_email.style.borderColor = "#b03838";
+        setTimeout(() => {
+            mensagem_erro.innerHTML = ""
+            inp_email.classList.remove("treme");
+
+        }, 5000);
+    } else if (nomeVar == "") {
+        mensagem_erro.innerHTML = "Insira um nome válido";
+        inp_nome.style.borderColor = "#b03838";
+        inp_nome.classList.add("treme");
+
+        setTimeout(() => {
+            mensagem_erro.innerHTML = ""
+            inp_nome.classList.remove("treme");
+
+        }, 5000);
+    } else if (userVar == "") {
+        mensagem_erro.innerHTML = "Insira um user válido";
+        inp_user.style.borderColor = "#b03838";
+        inp_user.classList.add("treme");
+
+        setTimeout(() => {
+            mensagem_erro.innerHTML = ""
+            inp_user.classList.remove("treme");
+        }, 5000);
+
+    } 
+    if (senhaVar == "") {
+        mensagem_erro.innerHTML = "Insira uma senha válida";
+        inp_senha.style.borderColor = "#b03838";
+        inp_senha.classList.add("treme")
+
+        setTimeout(() => {
+            mensagem_erro.innerHTML = ""
+            inp_senha.classList.remove("treme");
+
+        }, 5000);
+    } else if (confiSenhaVar == "") {
+        mensagem_erro.innerHTML += "O campo de Confimar senha ão pode ficar vazio";
+        inp_confiSenha.style.borderColor = "#b03838";
+        inp_confiSenha.classList.add("treme")
+
+        setTimeout(() => {
+            mensagem_erro.innerHTML = ""
+            inp_confiSenha.classList.remove("treme");
+
+        }, 5000);
     }
-    if (senhaVar == confiSenhaVar){
-        if (condition) {
-            
+    if (senhaVar == confiSenhaVar) {
+        if (senhaVar.length >= 8) {
+            fetch("/usuario/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    userServer: userVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+                    idPersoServer: idPersonagem
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "1500")
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    mensagem_erro.innerHTML = "";
+                    throw ("Nome de usuario ja está sendo utilizado");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
         } else {
-            
-        }
-    }
-
-    fetch("/usuario/cadastrar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
-            nomeServer: nomeVar,
-            userServer: userVar,
-            emailServer: emailVar,
-            senhaServer: senhaVar,
-            idPersoServer: idPersonagem
-        })
-    }).then(function (resposta) {
-
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-
-            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            mensagem_erro.innerHTML = "A Senha precisa conter 8 ou mais caracteres";
+            inp_senha.classList.add("treme")
+            inp_confiSenha.classList.add("treme")
 
             setTimeout(() => {
-                window.location = "login.html";
-            }, "1500")
+                mensagem_erro.innerHTML = ""
+                inp_confiSenha.classList.remove("treme")
+                inp_senha.classList.remove("treme");
+            }, 5000);
 
-            limparFormulario();
-            finalizarAguardar();
-        } else {
-            throw ("Houve um erro ao tentar realizar o cadastro!");
         }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-    });
+    } else {
+        mensagem_erro.innerHTML = "A Senhas não correspondem";
+        inp_senha.classList.add("treme")
+            inp_confiSenha.classList.add("treme")
+            setTimeout(() => {
+                mensagem_erro.innerHTML = ""
+                inp_confiSenha.classList.remove("treme")
+                inp_senha.classList.remove("treme");
+            }, 5000);
+    }
 
-    return false;
 }
 
 function entrar() {
@@ -1181,9 +1237,9 @@ function dadosDash() {
                     data.push(element.acertos);
                 });
 
-                const line = document.getElementById('line_chart');
-                new Chart(line, {
-                    type: 'line',
+                const bar = document.getElementById('line_chart');
+                new Chart(bar, {
+                    type: 'bar',
                     data: {
                         labels: labels,
                         datasets: [{
@@ -1220,3 +1276,22 @@ function dadosDash() {
     });
     return false;
 }
+
+function redirect() {
+    var botoes = document.getElementsByClassName('bottao');
+    
+    // Iterar sobre todos os elementos com a classe 'bottao'
+    for (var i = 0; i < botoes.length; i++) {
+      var botao = botoes[i];
+      
+      // Adicionar o evento de clique a cada elemento
+      botao.addEventListener('click', function() {
+        var idDoBotao = this.id;
+        alert(idDoBotao); // Alerta o ID do elemento clicado
+        
+        if (idDoBotao == "portifolio") {
+          window.location.href = 'https://github.com/zzzmiike';
+        }
+      });
+    }
+  }
