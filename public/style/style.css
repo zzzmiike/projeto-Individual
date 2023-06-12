@@ -16,8 +16,6 @@
     border-radius: 50px;
 }
 
-
-
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -25,7 +23,7 @@ html {
 
 body {
     font-family: 'Marvel', sans-serif;
-    color: #F78F3F;
+    color: #FFFFFF;
     background-repeat: repeat;
     padding: 0;
     margin: 0;
@@ -74,7 +72,7 @@ body {
 #iconeperso {
     width: 3vw;
     border-radius: 50%;
-    border: 2px solid #F78F3F;
+    border: 2px solid #FFFFFF;
     padding: 2%;
 }
 
@@ -149,17 +147,79 @@ body {
 }
 
 .container-objetivo,
-.container-sobre {
+.container-sobre,
+.container-noticias {
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur (10px);
-    border-bottom: 1px solid #FFFFFF;
-
+    border-top: 1px solid #FFFFFF;
 }
 
-.main-objetivo,
-.main-sobre {
-    width: 100vw;
+.cards {
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+.noticias-filmes,
+.noticias-hqs,
+.noticias-jogos {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    padding: 2%;
+    gap: 50px;
+    color: #FFFFFF;
+    font-size: 4vh;
+    text-align: justify;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    background-color: #E23636;
+    color: #FFFFFF;
+    transition: .5s;
+}
+
+.cards-sobre{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foti{
+    border-radius: 100px;
+    width: 25vw;
+}
+
+.sobreMim {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    gap: 50px;
+    color: #FFFFFF;
+    font-size: 4vh;
+    padding:2%;
+    margin: 5% 0 5% 0 ;
+}
+
+.sobreMim-text {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.cardsTitulo {
+    font-size: 5vh;
+    color: #F78F3F;
 }
 
 .index {
@@ -213,23 +273,20 @@ body {
     padding: 5%;
 }
 
-.noticias{
+.noticias {
     text-align: justify;
 
 }
 
-.TituloSaiba{
-    color:#F78F3F
+.TituloSaiba {
+    color: #F78F3F
 }
 
-.saibaMais .bottao{
-    width: 10%;
+.saibaMais .bottao {
+    width: 8%;
     border-radius: 4px;
     border: none;
-    background-color: #F78F3F;
     margin-left: 90%;
-    cursor: pointer;
-    transition: .5s;
 }
 
 

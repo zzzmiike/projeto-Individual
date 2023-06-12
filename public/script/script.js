@@ -1287,10 +1287,11 @@ function redirect() {
       // Adicionar o evento de clique a cada elemento
       botao.addEventListener('click', function() {
         var idDoBotao = this.id;
-        alert(idDoBotao); // Alerta o ID do elemento clicado
         
         if (idDoBotao == "portifolio") {
           window.location.href = 'https://github.com/zzzmiike';
+        } else if (idDoBotao == "noticiasSaiba"){
+          window.location.href = '../index.html#noticias';
         }
       });
     }

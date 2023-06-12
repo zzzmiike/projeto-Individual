@@ -21,9 +21,9 @@
             </div>
             <ul>
                 <li><a href="#main-objetivo" class="nav-link link-animation">Objetivo</a></li>
-                <li><a href="#" class="nav-link link-animation">Noticias</a></li>
+                <li><a href="#noticias" class="nav-link link-animation">Noticias</a></li>
                 <li><a href="#main-sobre" class="nav-link link-animation">Sobre</a></li>
-                <li><a href="#main-portifolio" class="nav-link link-animation">Portifolio</a></li>
+                <li><a href="https://github.com/zzzmiike" class="nav-link link-animation">Portifolio</a></li>
                 <li><a href="cadastro.html" class="nav-link link-animation">Cadastro</a></li>
                 <li><a href="login.html" class="nav-link link-animation">Login</a></li>
             </ul>
@@ -55,53 +55,114 @@
                 </div>
                 <div class="saibaMais noticias">
                     <span>
-                        <a class="TituloSaiba">Notícias e Atualizações:</a> Se mantenha atualizado sobre as últimas notícias e desenvolvimentos relacionados ao <a class="TituloSaiba">UCM</a>. Isso pode incluir anúncios de novos filmes, séries, elenco, datas de lançamento, trailers e informações de bastidores. Publique regularmente essas atualizações em seu site para manter os fãs informados sobre as novidades da Marvel.
+                        <a class="TituloSaiba">Notícias e Atualizações:</a> Se mantenha atualizado sobre as últimas
+                        notícias e desenvolvimentos relacionados ao <a class="TituloSaiba">UCM</a>. Isso pode incluir
+                        anúncios de novos filmes, séries, elenco, datas de lançamento, trailers e informações de
+                        bastidores. Publique regularmente essas atualizações em seu site para manter os fãs informados
+                        sobre as novidades da Marvel.
                     </span>
-                    <button onclick="redirect()" id="noticias" class="bottao">Saiba Mais</button>
+                    <button onclick="redirect()" id="noticiasSaiba" class="bottao">Saiba Mais</button>
                 </div>
                 <div class="saibaMais portifolio">
                     <span>
-                        <a class="TituloSaiba">Portifólio:</a> Este site também tem o intuito de ser utilizado como portifólio do que eu adquiri de competência de programação. Tenho um amor por todos os filmes da <a class="TituloSaiba">UCM</a> sendo o primeiro filme que assiti foi o <a class="TituloSaiba">Homem de Ferro</a>.
+                        <a class="TituloSaiba">Portifólio:</a> Este site também tem o intuito de ser utilizado como
+                        portifólio do que eu adquiri de competência de programação. Tenho um amor por todos os filmes da
+                        <a class="TituloSaiba">UCM</a> sendo o primeiro filme que assiti foi o <a
+                            class="TituloSaiba">Homem de Ferro</a>.
                     </span>
                     <button onclick="redirect()" id="portifolio" class="bottao">Saiba Mais</button>
                 </div>
                 <div class="saibaMais portifolio">
                     <span>
-                        <a class="TituloSaiba">Sobre Mim:</a> Assim como o portifólio, este site vai dizer um pouco sobre mim e do que eu gosto de fazer nas minhas horas vagas. Basicamente tudo que eu gosto vai acabar sendo mencionado aqui neste site.
+                        <a class="TituloSaiba">Sobre Mim:</a> Assim como o portifólio, este site vai dizer um pouco
+                        sobre mim e do que eu gosto de fazer nas minhas horas vagas. Basicamente tudo que eu gosto vai
+                        acabar sendo mencionado aqui neste site.
                     </span>
                     <button onclick="redirect()" id="sobremim" class="bottao">Saiba Mais</button>
                 </div>
             </div>
         </section>
-        <section id="main-sobre">
-            <div class="container-sobre">
-                <div class="conteudo">
+        <section id="noticias">
+            <div class="container-noticias">
+                <div class="titulo">
                     <span class="texto-Titulo">
-                        <text>
-                            Objetivo
+                        <text class="titulo-main">
+                            Noticias
                         </text>
                     </span>
-                    <span class="texto-index">
-                        <a>
-                            Bem-vindo ao Hero Universe.<br>
-                            Fique sabendo tudo sobre o Universo da Marvel, desde os quadrinhos aos filmes da MCU.
-                        </a>
-                    </span>
+                </div>
+                <div class="cards">
+                    <div class="noticias-filmes">
+                        <span class="cardsTitulo">
+                            UCM
+                        </span>
+                        <span>
+                            Aqui teremos todas as informaçoes e noticias sobre o <a class="TituloSaiba">Universo
+                                Cinematografico Marvel</a>, <a class="TituloSaiba">(o famoso UCM)</a>, sobre novos
+                            lancamentos de filmes, fase atual da UCM e noticias sobre as gravacoes.
+                        </span>
+                        <button onclick="redirect()" id="filme" class="bottao">Saiba Mais</button>
+                    </div>
+                    <div class="noticias-hqs">
+                        <span class="cardsTitulo">
+                            HQ'S
+                        </span>
+                        <span>
+                            Aqui teremos todas as informaçoes sobre os <a class="TituloSaiba">HQ's da Marvel</a> (as
+                            famosas Histórias em Quadrinho), sobre novos lancamentos de <a class="TituloSaiba">HQ's</a>
+                            e noticias sobre as edições.
+                        </span>
+                        <button onclick="redirect()" id="hq" class="bottao">Saiba Mais</button>
+                    </div>
+                    <div class="noticias-jogos">
+                        <span class="cardsTitulo">
+                            Jogos
+                        </span>
+                        <span>
+                            Aqui teremos todas as informaçoes sobre os <a class="TituloSaiba">HQ's da Marvel</a> (as
+                            famosas Histórias em Quadrinho), sobre novos lancamentos de <a class="TituloSaiba">HQ's</a>
+                            e noticias sobre as edições.
+                        </span>
+                        <button onclick="redirect()" id="jogo" class="bottao">Saiba Mais</button>
+                    </div>
                 </div>
             </div>
         </section>
-        <section id="main-portifolio">
-            <div class="text portifolio">
-                <span class="texto-Titulo">
-                    <a>
-                        hqifygwhebdsijcbyusiauhonxqubc
-                    </a>
-                </span>
+        <section id="main-sobre">
+            <div class="container-sobre">
+                <div class="titulo">
+                    <span class="texto-Titulo">
+                        <text class="titulo-main">
+                            Sobre Mim
+                        </text>
+                    </span>
+                </div>
+                <div class="cards-sobre">
+                    <div class="sobreMim">
+                        <div class="sobreMim-text">
+                            <!--<img class="foti" src="./assets/img/sobreMim/eu.JPG" alt="" srcset="">-->
+                            <span class="fotoBio">
+                                <a>Meu nome é <a class="TituloSaiba">Michael Henrique Teixeira</a> tenho 21 anos e já
+                                    tinha um conhecimento na area de tecnologia, pela meu curso técnico na <a class="TituloSaiba">ETEC Paulistano</a></a>
+                            </span>
+                        </div>
+                        <span class="explicacao">
+                            <a class="">Olá, Bem-vindo ao <a class="TituloSaiba">Hero Universe</a> é um site de projeto
+                                de faculdade,
+                                da máteria de <a class="TituloSaiba">Projeto e Inovação</a> da faculdade <a class="TituloSaiba">São Paulo Tech School.<br>
+                                    Nesse meu projeto individual do 1º Semestre, vou contar sobre algo que eu sou fã
+                                    desde que eu sou pequeno, que eu sempre
+                                </a>
+                            </a>
+                        </span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+    <footer>
 
-
+    </footer>
 </body>
 
 </html>
