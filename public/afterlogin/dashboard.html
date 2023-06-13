@@ -13,7 +13,7 @@
     <title>Quiz Sobre Personagem</title>
 </head>
 
-<body onload="validarSessao(), dadosDash()">
+<body onload="dashboard(), dadosDash()">
     <header>
         <nav id="navbar">
             <div id="logo">
@@ -31,8 +31,15 @@
             </ul>
         </nav>
     </header>
-    <div id="containerPerso">
-        <canvas id="line_chart"></canvas>
+    <div id="containerPersoDash">
+        <span>
+            <text>
+                <h1>Total de Acertos </h1>
+            </text>
+        </span>
+        <div class="dadosDaDash">
+            <canvas id="line_chart"></canvas>
+        </div>
     </div>
 </body>
 

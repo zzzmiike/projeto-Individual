@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Marvel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marvel:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /*Estilos Universais*/
 ::-webkit-scrollbar {
@@ -312,7 +312,6 @@ button {
     border: 1px solid #E23636;
     cursor: pointer;
     width: 50%;
-    color: #F78F3F;
     font-size: 2.2vh;
     border-radius: 5px;
     transition: .5s;
@@ -407,6 +406,11 @@ label {
     width: 30px;
 }
 
+#b_usuario{
+    font-weight: 700;
+    color: #F78F3F;
+}
+
 /*Inicio do Quiz*/
 .quiz {
     position: absolute;
@@ -419,6 +423,11 @@ label {
     border: 1px solid;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 5%;
+    font-size: 25px;
+}
+
+h3{
+    color: #F78F3F;
 }
 
 .container .telaquiz {
@@ -429,6 +438,8 @@ label {
 
 #nome_perso {
     font-size: 4vh;
+    font-weight: 700;
+    color: #F78F3F;
 }
 
 .inputQuiz {
@@ -452,6 +463,13 @@ label {
     position: relative;
     display: flex;
     justify-content: space-between;
+}
+
+#containerPersoDash{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #tituloPersonagem{
@@ -491,7 +509,6 @@ label {
     width: 65%;
 }
 
-
 #imgPerso {
     width: 35%;
 }
@@ -507,4 +524,8 @@ label {
     align-items: start;
     justify-content: start;
     gap: 25px;
+}
+
+.dadosDaDash{
+    width: 50%;
 }

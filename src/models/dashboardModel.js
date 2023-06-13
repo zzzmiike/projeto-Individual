@@ -18,7 +18,7 @@ function listar(idUsuario, idPersonagem) {
     var instrucao = `
     SELECT respostas.acertos,
             respostas.fkUsuario as fkUsuario,
-            respostas.dtResposta AS dtHora
+            date_format(dtResposta, "%d/%m/%y %H:%i") as dtHora
             FROM respostas JOIN usuario ON fkUsuario = idUsuario
             JOIN personagem ON fkPersonagem = idPersonagem
             WHERE fkUsuario = ${idPersonagem} AND fkPersonagem = ${idUsuario};

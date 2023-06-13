@@ -109,7 +109,7 @@ function cadastrar() {
             inp_user.classList.remove("treme");
         }, 5000);
 
-    } 
+    }
     if (senhaVar == "") {
         mensagem_erro.innerHTML = "Insira uma senha válida";
         inp_senha.style.borderColor = "#b03838";
@@ -185,12 +185,12 @@ function cadastrar() {
     } else {
         mensagem_erro.innerHTML = "A Senhas não correspondem";
         inp_senha.classList.add("treme")
-            inp_confiSenha.classList.add("treme")
-            setTimeout(() => {
-                mensagem_erro.innerHTML = ""
-                inp_confiSenha.classList.remove("treme")
-                inp_senha.classList.remove("treme");
-            }, 5000);
+        inp_confiSenha.classList.add("treme")
+        setTimeout(() => {
+            mensagem_erro.innerHTML = ""
+            inp_confiSenha.classList.remove("treme")
+            inp_senha.classList.remove("treme");
+        }, 5000);
     }
 
 }
@@ -339,7 +339,7 @@ function validarSessao1() {
         <img src="../assets/img/persons/iron.png" class="imagens">
         </div>
         `
-        
+
         graphText.innerHTML += `
         <div class="textsPerso1">
         <canvas id="radar_chart">
@@ -366,7 +366,7 @@ function validarSessao1() {
         </span>
         </div>
         <div id="imgPerso">
-        <img src="../assets/img/persons/black-panter.png" class="imagens">
+        <img src="../assets/img/persons/black-panter cópia.png" class="imagens">
         </div>
         `
 
@@ -456,7 +456,7 @@ function validarSessao1() {
         <img src="../assets/img/persons/black-spiderman.svg" class="imagens">
         </div>
         `
-        
+
         graphText.innerHTML += `
         <div class="textsPerso1">
         <canvas id="radar_chart">
@@ -537,6 +537,11 @@ function validarSessao1() {
                     },
                     suggestedMin: 0,
                     suggestedMax: 100
+                },
+            },
+            plugins: {
+                legend: {
+                    display: false
                 }
             }
         }
@@ -565,6 +570,58 @@ function validarSessao() {
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/capitain-america.svg">
         `;
+        nomePersonagem.innerHTML = personagem;
+    } else if (fkPersonagem == "1009368" && user != null) { // Homem de Ferro
+        liperson.innerHTML = `
+        <img id="iconeperso" style="background-color:white; border-radius:50%;" src="../assets/img/icons/iron-man.svg">
+        `;
+        nomePersonagem.innerHTML = personagem;
+    } else if (fkPersonagem == "1009187" && user != null) { // Pantera Negra
+        liperson.innerHTML = `
+        <img id="iconeperso" src="../assets/img/icons/black-panther.svg">
+        `
+        nomePersonagem.innerHTML = personagem;
+    } else if (fkPersonagem == "1009189" && user != null) { // Viúva Negra
+        liperson.innerHTML = `
+        <img id="iconeperso" src="../assets/img/icons/black-widow.svg">
+        `;
+        nomePersonagem.innerHTML = `a ${personagem}`;
+    } else if (fkPersonagem == "1011025" && user != null) { // Thor
+        liperson.innerHTML = `
+        <img id="iconeperso" src="../assets/img/icons/thorr.svg">
+        `;
+        nomePersonagem.innerHTML = personagem;
+    } else if (fkPersonagem == "1001003" && user != null) { // Homem Aranha
+        liperson.innerHTML = `
+        <img id="iconeperso" src="../assets/img/icons/spiderman.svg">
+        `;
+        nomePersonagem.innerHTML = personagem;
+    } else if (fkPersonagem == "1009351" && user != null) { // Hulk
+        liperson.innerHTML = `
+        <img id="iconeperso" src="../assets/img/icons/hulk.svg">
+        `;
+        nomePersonagem.innerHTML = personagem;
+    }
+
+    if (user != null) {
+        b_usuario.innerHTML = user;
+    } else {
+        window.location = "../login.html";
+    }
+}
+
+function dashboard() {
+    var user = sessionStorage.USERNAME_USUARIO;
+    fkPersonagem = sessionStorage.FK_USUARIO;
+    personagem = sessionStorage.PERSONAGEM_PERSONAGEM;
+    idUsuario = sessionStorage.ID_USUARIO;
+    var b_usuario = document.getElementById("b_usuario");
+    var nomePersonagem = document.getElementById("nome_perso");
+
+    if (fkPersonagem == "1009220" && user != null) { // Capitão America
+        liperson.innerHTML = `
+        <img id="iconeperso" src="../assets/img/icons/capitain-america.svg">
+        `;
     } else if (fkPersonagem == "1009368" && user != null) { // Homem de Ferro
         liperson.innerHTML = `
         <img id="iconeperso" style="background-color:white; border-radius:50%;" src="../assets/img/icons/iron-man.svg">
@@ -576,19 +633,20 @@ function validarSessao() {
     } else if (fkPersonagem == "1009189" && user != null) { // Viúva Negra
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/black-widow.svg">
-        `
+        `;
+        nomePersonagem.innerHTML = `a ${personagem}`;
     } else if (fkPersonagem == "1011025" && user != null) { // Thor
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/thorr.svg">
-        `
+        `;
     } else if (fkPersonagem == "1001003" && user != null) { // Homem Aranha
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/spiderman.svg">
-        `
+        `;
     } else if (fkPersonagem == "1009351" && user != null) { // Hulk
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/hulk.svg">
-        `
+        `;
     }
 
     if (user != null) {
@@ -597,7 +655,6 @@ function validarSessao() {
         window.location = "../login.html";
     }
 }
-
 
 var questao = 0
 var respostaEscolhida = "";
@@ -901,7 +958,7 @@ function verificarRespostas() {
 
         questaoAtual++;
 
-        if (questaoAtual < thor.length) {
+        if (questaoAtual < capitao.length) {
             setTimeout(() => {
 
                 iniciar();
@@ -956,7 +1013,7 @@ function verificarRespostas() {
 
         questaoAtual++;
 
-        if (questaoAtual < thor.length) {
+        if (questaoAtual < ferro.length) {
             setTimeout(() => {
 
                 iniciar();
@@ -1011,7 +1068,7 @@ function verificarRespostas() {
 
         questaoAtual++;
 
-        if (questaoAtual < thor.length) {
+        if (questaoAtual < pantera.length) {
             setTimeout(() => {
 
                 iniciar();
@@ -1066,7 +1123,7 @@ function verificarRespostas() {
 
         questaoAtual++;
 
-        if (questaoAtual < thor.length) {
+        if (questaoAtual < viuva.length) {
             setTimeout(() => {
 
                 iniciar();
@@ -1176,7 +1233,7 @@ function verificarRespostas() {
 
         questaoAtual++;
 
-        if (questaoAtual < thor.length) {
+        if (questaoAtual < aranha.length) {
             setTimeout(() => {
 
                 iniciar();
@@ -1231,7 +1288,7 @@ function verificarRespostas() {
 
         questaoAtual++;
 
-        if (questaoAtual < thor.length) {
+        if (questaoAtual < hulk.length) {
             setTimeout(() => {
 
                 iniciar();
@@ -1316,7 +1373,16 @@ function dadosDash() {
                         scales: {
                             y: {
                                 suggestedMin: 0,
-                                suggestedMax: 10
+                                suggestedMax: 10,
+                                grid: {
+                                    display: true,
+                                    color: 'rgba(255, 255, 255, 1)',
+                                },
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
                             }
                         }
                     }
@@ -1337,20 +1403,22 @@ function dadosDash() {
 
 function redirect() {
     var botoes = document.getElementsByClassName('bottao');
-    
+
     // Iterar sobre todos os elementos com a classe 'bottao'
     for (var i = 0; i < botoes.length; i++) {
-      var botao = botoes[i];
-      
-      // Adicionar o evento de clique a cada elemento
-      botao.addEventListener('click', function() {
-        var idDoBotao = this.id;
-        
-        if (idDoBotao == "portifolio") {
-          window.location.href = 'https://github.com/zzzmiike';
-        } else if (idDoBotao == "noticiasSaiba"){
-          window.location.href = '../index.html#noticias';
-        }
-      });
+        var botao = botoes[i];
+
+        // Adicionar o evento de clique a cada elemento
+        botao.addEventListener('click', function () {
+            var idDoBotao = this.id;
+
+            if (idDoBotao == "portifolio") {
+                window.location.href = 'https://github.com/zzzmiike';
+            } else if (idDoBotao == "noticiasSaiba") {
+                window.location.href = '../index.html#noticias';
+            } else if (idDoBotao == "sobremim") {
+                window.location.href = '../index.html#main-sobre';
+            }
+        });
     }
-  }
+}
