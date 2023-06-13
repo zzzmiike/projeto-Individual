@@ -19,6 +19,7 @@ function entrar(username, senha) {
         usuario.email as email,
         personagem.idPersonagem as fkPersonagem,
         personagem.descricao as descricao,
+        personagem.descricao1 as descricao1,
         personagem.nome as personagem,
         personagem.hp as hp,
         personagem.resistência as resistencia,

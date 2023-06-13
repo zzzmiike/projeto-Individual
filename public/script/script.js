@@ -237,6 +237,7 @@ function entrar() {
                 sessionStorage.FK_USUARIO = json.fkPersonagem;
                 sessionStorage.PERSONAGEM_PERSONAGEM = json.personagem;
                 sessionStorage.DESCRICAO_PESONAGEM = json.descricao;
+                sessionStorage.DESCRICAO1_PESONAGEM = json.descricao1;
                 sessionStorage.HP_PERSONAGEM = json.hp;
                 sessionStorage.RESISTENCIA_PERSONAGEM = json.resistencia;
                 sessionStorage.FORCA_PERSONAGEM = json.forca;
@@ -279,6 +280,7 @@ function validarSessao1() {
     fkPersonagem = sessionStorage.FK_USUARIO;
     personagem = sessionStorage.PERSONAGEM_PERSONAGEM;
     var desc = sessionStorage.DESCRICAO_PESONAGEM;
+    var desc1 = sessionStorage.DESCRICAO1_PESONAGEM;
     var hp = sessionStorage.HP_PERSONAGEM;
     var resis = sessionStorage.RESISTENCIA_PERSONAGEM;
     var forca = sessionStorage.FORCA_PERSONAGEM;
@@ -293,9 +295,12 @@ function validarSessao1() {
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/capitain-america.svg">
         `
+
+        tituloPersonagem.innerHTML += `
+        <span class="titulo-personagem">${personagem}</span><br>
+        `
         containerPerso.innerHTML += `
         <div class="textsPerso">
-        <span class="tituloPersonagem">${personagem}</span><br>
         <span class="textPersonagem">
             ${desc}
         </span>
@@ -303,21 +308,29 @@ function validarSessao1() {
         <div id="imgPerso">
         <img src="../assets/img/persons/capitao.png" class="imagens">
         </div>
+        `
+
+        graphText.innerHTML += `
         <div class="textsPerso1">
-        <span class="textPersonagem">
-        </span>
-            <canvas id="radar_chart">
-            </canvas>
+        <canvas id="radar_chart">
+        </canvas>
         </div>
+        <span class="textPersonagem">
+            ${desc1}
+        </span>
+        
         `
 
     } else if (fkPersonagem == "1009368" && user != null) { // Homem de Ferro
         liperson.innerHTML = `
         <img id="iconeperso" style="background-color:white; border-radius:50%;" src="../assets/img/icons/iron-man.svg">
         `
+
+        tituloPersonagem.innerHTML += `
+        <span class="titulo-personagem">${personagem}</span><br>
+        `
         containerPerso.innerHTML += `
         <div class="textsPerso">
-        <span class="tituloPersonagem">${personagem}</span><br>
         <span class="textPersonagem">
             ${desc}
         </span>
@@ -325,21 +338,29 @@ function validarSessao1() {
         <div id="imgPerso">
         <img src="../assets/img/persons/iron.png" class="imagens">
         </div>
+        `
+        
+        graphText.innerHTML += `
         <div class="textsPerso1">
-        <span class="textPersonagem">
-        </span>
-            <canvas id="radar_chart">
-            </canvas>
+        <canvas id="radar_chart">
+        </canvas>
         </div>
+        <span class="textPersonagem">
+            ${desc1}
+        </span>
+        
         `
     } else if (fkPersonagem == "1009187" && user != null) { // Pantera Negra
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/black-panther.svg">
         `
 
+
+        tituloPersonagem.innerHTML += `
+        <span class="titulo-personagem">${personagem}</span><br>
+        `
         containerPerso.innerHTML += `
         <div class="textsPerso">
-        <span class="tituloPersonagem">${personagem}</span><br>
         <span class="textPersonagem">
             ${desc}
         </span>
@@ -347,20 +368,28 @@ function validarSessao1() {
         <div id="imgPerso">
         <img src="../assets/img/persons/black-panter.png" class="imagens">
         </div>
+        `
+
+        graphText.innerHTML += `
         <div class="textsPerso1">
-        <span class="textPersonagem">
-        </span>
-            <canvas id="radar_chart">
-            </canvas>
+        <canvas id="radar_chart">
+        </canvas>
         </div>
+        <span class="textPersonagem">
+            ${desc1}
+        </span>
+        
         `
     } else if (fkPersonagem == "1009189" && user != null) { // Viúva Negra
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/black-widow.svg">
         `
+
+        tituloPersonagem.innerHTML += `
+        <span class="titulo-personagem">${personagem}</span><br>
+        `
         containerPerso.innerHTML += `
         <div class="textsPerso">
-        <span class="tituloPersonagem">${personagem}</span><br>
         <span class="textPersonagem">
             ${desc}
         </span>
@@ -368,20 +397,28 @@ function validarSessao1() {
         <div id="imgPerso">
         <img src="../assets/img/persons/viuva.png" class="imagens">
         </div>
+        `
+
+        graphText.innerHTML += `
         <div class="textsPerso1">
-        <span class="textPersonagem">
-        </span>
-            <canvas id="radar_chart">
-            </canvas>
+        <canvas id="radar_chart">
+        </canvas>
         </div>
+        <span class="textPersonagem">
+            ${desc1}
+        </span>
+        
         `
     } else if (fkPersonagem == "1011025" && user != null) { // Thor
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/thorr.svg">
         `
+
+        tituloPersonagem.innerHTML += `
+        <span class="titulo-personagem">${personagem}</span><br>
+        `
         containerPerso.innerHTML += `
         <div class="textsPerso">
-        <span class="tituloPersonagem">${personagem}</span><br>
         <span class="textPersonagem">
             ${desc}
         </span>
@@ -389,20 +426,28 @@ function validarSessao1() {
         <div id="imgPerso">
         <img src="../assets/img/persons/thor.png" class="imagens">
         </div>
+        `
+
+        graphText.innerHTML += `
         <div class="textsPerso1">
-        <span class="textPersonagem">
-        </span>
-            <canvas id="radar_chart">
-            </canvas>
+        <canvas id="radar_chart">
+        </canvas>
         </div>
+        <span class="textPersonagem">
+            ${desc1}
+        </span>
+        
         `
     } else if (fkPersonagem == "1001003" && user != null) { // Homem Aranha
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/spiderman.svg">
         `
+
+        tituloPersonagem.innerHTML += `
+        <span class="titulo-personagem">${personagem}</span><br>
+        `
         containerPerso.innerHTML += `
         <div class="textsPerso">
-        <span class="tituloPersonagem">${personagem}</span><br>
         <span class="textPersonagem">
             ${desc}
         </span>
@@ -410,20 +455,28 @@ function validarSessao1() {
         <div id="imgPerso">
         <img src="../assets/img/persons/black-spiderman.svg" class="imagens">
         </div>
+        `
+        
+        graphText.innerHTML += `
         <div class="textsPerso1">
-        <span class="textPersonagem">
-        </span>
-            <canvas id="radar_chart">
-            </canvas>
+        <canvas id="radar_chart">
+        </canvas>
         </div>
+        <span class="textPersonagem">
+            ${desc1}
+        </span>
+        
         `
     } else if (fkPersonagem == "1009351" && user != null) { // Hulk
         liperson.innerHTML = `
         <img id="iconeperso" src="../assets/img/icons/hulk.svg">
         `
+
+        tituloPersonagem.innerHTML += `
+        <span class="titulo-personagem">${personagem}</span><br>
+        `
         containerPerso.innerHTML += `
         <div class="textsPerso">
-        <span class="tituloPersonagem">${personagem}</span><br>
         <span class="textPersonagem">
             ${desc}
         </span>
@@ -431,12 +484,17 @@ function validarSessao1() {
         <div id="imgPerso">
         <img src="../assets/img/persons/hulk.png" class="imagens">
         </div>
+        `
+
+        graphText.innerHTML += `
         <div class="textsPerso1">
-        <span class="textPersonagem">
-        </span>
-            <canvas id="radar_chart">
-            </canvas>
+        <canvas id="radar_chart">
+        </canvas>
         </div>
+        <span class="textPersonagem">
+            ${desc1}
+        </span>
+        
         `
     }
 

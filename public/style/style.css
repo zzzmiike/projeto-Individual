@@ -71,13 +71,10 @@ body {
 
 #iconeperso {
     width: 3vw;
+    background-color: #FFFFFF;
     border-radius: 50%;
     border: 2px solid #FFFFFF;
     padding: 2%;
-}
-
-#iconeperso img {
-    width: 2vw;
 }
 
 .nav-link {
@@ -290,7 +287,7 @@ button {
 }
 
 
-/*dfghjkl*/
+/*personagem.html*/
 
 .personagemImg {
     width: 30vh;
@@ -440,50 +437,67 @@ label {
 }
 
 /*Inicial de Dash, Quiz e Resumo de personagem*/
-#containerPerso {
-    width: 100vw;
-    height: 90vh;
-    position: relative;
+.main-perso{
     display: flex;
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(4px);
-    padding: 2% 0 0 0;
-}
-
-.tituloPersonagem {
-    font-size: 5vh;
-}
-
-.textPersonagem {
-    text-align: justify;
-    font-size: 2.5vh;
-    height: 77.5vh;
+    justify-content: center;
+    flex-direction: column;
     padding: 2%;
+    font-size: 25px;
+    
+}
+
+#containerPerso {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+#tituloPersonagem{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#graphText{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+    justify-content: space-between;
+
+}
+
+.textPersonagem{
+    width: 65vw;
+}
+
+.textsPerso1 {
+    position: relative;
+    width: 20%;
+}
+.titulo-personagem{
+    color: #F78F3F;
+    font-size: 8vh;
 }
 
 .textsPerso {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 40%;
+    padding: 2%;
+    width: 65%;
 }
 
-.textsPerso1 {
-    display: flex;
-    justify-content: end;
-    align-items: end;
-    flex-direction: column;
-    width: 20%;
-    height: 50vh;
-}
 
 #imgPerso {
-    margin: 0 0 0 2%;
-    width: 25vw;
+    width: 35%;
 }
 
 .imagens {
-    width: 17vw;
+    width: 100%;
 }
 
 #inputs_quiz {
