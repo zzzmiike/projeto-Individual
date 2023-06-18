@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./script/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <title>Hero Universe</title>
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <div id="logo">
+                <img src="./assets/img/icons/avengers.svg" alt="">
+                <span>
+                    Hero Universe
+                </span>
+            </div>
+            <ul>
+                <li><a href="login.html" class="nav-link link-animation">Login</a></li>
+                <li><a href="index.html" class="nav-link link-animation">Voltar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="containerCadastro">
+        <div class="containerItens">
+            <a class="titulo-pages">Cadastro</a>
+            <span class="texto Cadastro">
+                faça aqui o seu cadastro para poder fazer o quiz sobre os personagens da MARVEL.
+            </span>
+            <div id="mensagem_erro"></div>
+            <div class="formCadastro">
+                <label for="email">
+                    email:
+                    <input type="text" id="inp_email" name="email" placeholder="tonystark@avengers.com">
+                </label>
+                <div class="formCadastro inputs">
+                    <label for="nome">
+                        Nome:
+                        <input type="text" id="inp_nome" name="nome" placeholder="Tony Stark" />
+                    </label>
+                    <label for="username">
+                        Username:
+                        <input type="text" id="inp_user" name="username" placeholder="tonystark">
+                    </label>
+                </div>
+                <label for="senha">
+                    Senha:
+                    <input type="password" id="inp_senha" name="senha" placeholder="********">
+                </label>
+                <label for="confirSenha">
+                    Confirme sua Senha:
+                    <input type="password" id="inp_confiSenha" name="confirSenha" placeholder="********">
+
+                </label>
+                <div class="container">
+                    <div class="selectsPerso">
+                        <select id="selectPersonagem" onchange="alterar()">
+                            <option value="SelecioneUmPersonagem" selected>Selecione um Personagem</option>
+                            <option value="capitain-america">Capitão América</option>
+                            <option value="iron-man">Homem de Ferro</option>
+                            <option value="thor">Thor</option>
+                            <option value="hulk">Hulk</option>
+                            <option value="black-widow">Viúva Negra</option>
+                            <option value="black-panther">Pantera Negra</option>
+                            <option value="spider">Homem Aranha</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="mesagemCadastro">
+                </div>
+                <div id="divButton">
+                    <button onclick="cadastrar()" class="btn">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
+    <script src="../script/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <title>Quiz Sobre Personagem</title>
+</head>
+
+<body onload="validarSessao()">
+    <header>
+        <nav id="navbar">
+            <div id="logo">
+                <img src="../assets/img/icons/avengers.svg" alt="">
+                <span>
+                    Hero Universe
+                </span>
+            </div>
+            <ul>
+                <li><a href="./personagem.html" class="nav-link link-animation">Inicio</a></li>
+                <li><a href="./dashboard.html" class="nav-link link-animation">Desempenho</a></li>
+                <li id="liperson"></li>
+                <li>Olá, <span id="b_usuario"></span></li>
+                <li><a href="../login.html" onclick="limparSessao()" class="nav-link link-animation">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="container telaquiz">
+            <div id="quiz" class="quiz">
+                Bem vindo ao Quiz sobre o <span id="nome_perso"></span>
+                <button onclick="iniciar()" class="btn">Iniciar Quiz</button>
+            </div>
+            <div class="inputQuiz" id="inputQuiz">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
+    <script src="../script/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Infos Sobre Personagem</title>
+</head>
+
+<body onload="validarSessao1()">
+    <header>
+        <nav id="navbar">
+            <div id="logo">
+                <img src="../assets/img/icons/avengers.svg" alt="">
+                <span>
+                    Hero Universe
+                </span>
+            </div>
+            <ul>
+                <li><a href="./dashboard.html" class="nav-link link-animation">Desempenho</a></li>
+                <li><a href="./quiz.html" class="nav-link link-animation">Quiz</a></li>
+                <li id="liperson"></li>
+                <li>Olá, <span id="b_usuario"></span></li>
+                <li><a href="../login.html" onclick="limparSessao()" class="nav-link link-animation">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-perso">
+        <div id="tituloPersonagem">
+        </div>
+        <div id="containerPerso">
+        </div>
+        <div id="graphText"></div>
+    </main>
+</body>
+
+</html>

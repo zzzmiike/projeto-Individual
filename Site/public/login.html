@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./script/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <title>Hero Universe</title>
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <div id="logo">
+                <img src="./assets/img/icons/avengers.svg" alt="">
+                <span class="logoi">
+                    Hero Universe
+                </span>
+            </div>
+            <ul>
+                <li><a href="cadastro.html" class="nav-link link-animation">Cadastro</a></li>
+                <li><a href="index.html" class="nav-link link-animation">Voltar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="containerCadastro">
+        <div class="containerItens">
+            <a class="titulo-pages">Login</a>
+            <span class="texto Cadastro">
+                faça aqui o seu login para poder ter acesso as todas as funcionalidades dessa aplicação MARVEL.
+            </span>
+            <div id="mensagem_erro"></div>
+            <div class="formCadastro">
+                <label for="username">
+                    Username:
+                    <input type="text" id="inp_user" name="username" placeholder="tonystark">
+                </label>
+                <label for="senha">
+                    Senha:
+                    <input type="password" id="inp_senha" name="senha" placeholder="********">
+                </label>
+                <div id="divButton">
+                    <button onclick="entrar()" class="btn">ENTRAR</button>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
